@@ -13,7 +13,7 @@ To do the experiment, please download the reads listed below and do one of the f
 
 ### Reads used in the experiment
 
-The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves are have not been re-compressed.)
+The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
 
 | File | Coverage |
 | ---- | -------- |
