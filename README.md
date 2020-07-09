@@ -6,8 +6,8 @@ To build PanVC, please follow the instructions on the [repository page of PanVC]
 
 To run any of the experiments, please download and unarchive the reads in question and do one of the following:
 
-* Download the pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
-* Download the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
+* Download and unarchive the pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
+* Download and decompress the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
 
 ### Generating indices with PanVC
 
