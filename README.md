@@ -11,7 +11,7 @@ To run any of the experiments, please download and unarchive the reads in questi
 
 ### Generating indices with PanVC
 
-We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices. In general, PanVC’s indexing input consists of a directory with two files: `chr_list.txt` and `pangenome1.a2m`. The index consists of various files that will be placed in a given directory.
+We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices. In general, PanVC’s indexing input consists of a directory with two files: `chr_list.txt` and `pangenome1.a2m`. The index consists of various files that `panvc_index` places in a given directory.
 
 1. Download the compressed founder sequences for the experiment in question. One sequence file corresponds to one index.
 2. Decompress the file with e.g. `pbzip2` or `bzip2`.
