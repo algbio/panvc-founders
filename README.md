@@ -6,7 +6,7 @@ To build PanVC, please follow the instructions on the [repository page of PanVC]
 
 ### Generating indices with PanVC
 
-We provide pregenerate indices for each experiment. In case you would like to prepare the index yourself, please follow these instructions.
+We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these instructions.
 
 1. Download the compressed founder sequences for the experiment in question. One sequence file corresponds to one index.
 2. Decompress the file with e.g. `pbzip2` or `bzip2`.
