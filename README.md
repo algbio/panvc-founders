@@ -1,8 +1,13 @@
 # PanVC Experiments with Founder Sequences
 
-We provide the following data files for use with PanVC.
+We provide the following data files for testing PanVC.
 
 To build PanVC, please follow the instructions on the [repository page of PanVC](https://gitlab.com/dvalenzu/PanVC/-/tree/PanVC-2.0-rc-tsnorri).
+
+To run any of the experiments, please download and unarchive the reads in question and do one of the following:
+
+* Download the pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
+* Download the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
 
 ### Generating indices with PanVC
 
@@ -16,11 +21,6 @@ We provide pregenerated indices for each experiment. In case you would like to p
 6. Run `panvc_index`. Please see [PanVC’s README](https://gitlab.com/dvalenzu/PanVC/-/blob/PanVC-2.0-rc-tsnorri/README.md) for details. The read length parameter should be set to a value greater than the read length used in the experiment in question. For the maximum edit distance, we used the value 10.
 
 ## Experiment data
-
-To do any of the experiments, please download the reads in question and do one of the following:
-
-* Download pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
-* Download the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
 
 ### Experiments with artificial mutations
 
