@@ -24,6 +24,8 @@ To do any of the experiments, please download the reads in question and do one o
 
 ### Experiments with artificial mutations
 
+See [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for sample scripts.
+
 #### Reads used in the experiment
 
 The following archive contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archive itself has not been re-compressed.)
