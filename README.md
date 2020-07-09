@@ -24,6 +24,14 @@ To do any of the experiments, please download the reads in question and do one o
 
 ### Experiments with artificial mutations
 
+#### Reads used in the experiment
+
+The following archive contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archive itself has not been re-compressed.)
+
+| Reads |
+| ----- |
+| [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/genreads.tar) |
+
 #### Founder sequences used when generating the indices
 
 | Sequence archive |
