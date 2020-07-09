@@ -15,14 +15,24 @@ We provide pregenerated indices for each experiment. In case you would like to p
 5. Create a text file called `chr_list.txt` alongside the A2M file. The contents of the file should be the number `1` followed by a newline.
 6. Run `panvc_index`. Please see [PanVC’s README](https://gitlab.com/dvalenzu/PanVC/-/blob/PanVC-2.0-rc-tsnorri/README.md) for details. The read length parameter should be set to a value greater than the read length used in the experiment in question. For the maximum edit distance, we used the value 10.
 
-## Take-one-out experiment with human chromosome 22
+## Experiment data
 
-To do the experiment, please download the reads listed below and do one of the following:
+To do any of the experiments, please download the reads in question and do one of the following:
 
-* Download pre-generated indices (below) and run `panvc_call_variants`
-* Download the founder sequences (below), prepare input for `panvc_index`, generate the index and run `panvc_call_variants`.
+* Download pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
+* Download the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
 
-### Reads used in the experiment
+### Experiments with artificial mutations
+
+#### Founder sequences used when generating the indices
+
+| Sequence archive |
+| ---------------- |
+| [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2) |
+
+### Take-one-out experiment with human chromosome 22
+
+#### Reads used in the experiment
 
 The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
 
@@ -32,7 +42,7 @@ The following archives contain the reads used in the experiment in gzip-compress
 | [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov20.tar) | 20x |
 | [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov50.tar) | 50x |
 
-### Indices for use with `panvc_call_variants`
+#### Indices for use with `panvc_call_variants`
 
 The following archives contain indices generated with `panvc_index`.
 
@@ -44,7 +54,7 @@ The following archives contain indices generated with `panvc_index`.
 | [no-NA18954.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA18954.tar.bz2) |
 | [no-NA19238.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA19238.tar.bz2) |
 
-### Founder sequences used when generating the indices
+#### Founder sequences used when generating the indices
 
 | Sequence file |
 | ------------- |
