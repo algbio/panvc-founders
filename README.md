@@ -9,6 +9,8 @@ To run any of the experiments, please download and unarchive the reads in questi
 * Download and unarchive the pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
 * Download and decompress the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
 
+Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
+
 ### Generating indices with PanVC
 
 We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices. In general, PanVC’s indexing input consists of a directory with two files: `chr_list.txt` and `pangenome1.a2m`. The index consists of various files that `panvc_index` places in a given directory.
