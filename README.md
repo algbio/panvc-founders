@@ -2,6 +2,8 @@
 
 We provide the following data files for use with PanVC.
 
+To build PanVC, please follow the instructions on the [repository page of PanVC](https://gitlab.com/dvalenzu/PanVC/-/tree/PanVC-2.0-rc-tsnorri).
+
 ## Take-one-out experiment with human chromosome 22
 
 To do the experiment, please download the reads listed below and do one of the following:
