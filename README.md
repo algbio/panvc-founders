@@ -24,6 +24,34 @@ We provide pregenerated indices for each experiment. In case you would like to p
 
 ## Experiment data
 
+### Founder quality experiment
+
+#### Reads used in the experiment
+
+The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
+
+| File | Coverage |
+| ---- | -------- |
+| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x |
+| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x |
+| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x |
+
+#### Indices for use with `panvc_call_variants`
+
+The following archives contain indices generated with `panvc_index`.
+
+| Index | Index file |
+| ----- | ---------- |
+| Index generated with founder sequences | [founder-sequence-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/founder-sequence-index.tar.bz2) |
+| Index generated with all predicted sequences | [predicted-sequence-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/predicted-sequence-index.tar.bz2) |
+
+#### Sequences used as input when generating the indices
+
+| Input | File |
+| ----- | ---- |
+| Founder sequences | [founder-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/founder-sequences.a2m.bz2) |
+| Predicted sequences | [predicted-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/predicted-sequences.a2m.bz2) |
+
 ### Experiments with artificial mutations
 
 See [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for sample scripts.
