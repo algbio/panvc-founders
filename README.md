@@ -103,3 +103,63 @@ The following archives contain indices generated with `panvc_index`.
 | [no-NA12273.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA12273.tar.bz2) |
 | [no-NA18954.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA18954.tar.bz2) |
 | [no-NA19238.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA19238.tar.bz2) |
+
+### Scalability experiment
+
+#### Indices for use with `panvc_call_variants`
+
+The following archives contain indices generated with `panvc_index`.
+
+| Index file |
+| ---------- |
+| [chr1-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr1-index.tar.bz2) |
+| [chr2-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr2-index.tar.bz2) |
+| [chr3-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr3-index.tar.bz2) |
+| [chr4-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr4-index.tar.bz2) |
+| [chr5-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr5-index.tar.bz2) |
+| [chr6-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr6-index.tar.bz2) |
+| [chr7-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr7-index.tar.bz2) |
+| [chr8-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr8-index.tar.bz2) |
+| [chr9-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr9-index.tar.bz2) |
+| [chr10-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr10-index.tar.bz2) |
+| [chr11-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr11-index.tar.bz2) |
+| [chr12-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr12-index.tar.bz2) |
+| [chr13-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr13-index.tar.bz2) |
+| [chr14-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr14-index.tar.bz2) |
+| [chr15-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr15-index.tar.bz2) |
+| [chr16-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr16-index.tar.bz2) |
+| [chr17-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr17-index.tar.bz2) |
+| [chr18-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr18-index.tar.bz2) |
+| [chr19-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr19-index.tar.bz2) |
+| [chr20-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr20-index.tar.bz2) |
+| [chr21-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr21-index.tar.bz2) |
+| [chr22-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chr22-index.tar.bz2) |
+| [chrX-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/indices/chrX-index.tar.bz2) |
+
+#### Founder sequences used when generating the indices
+
+| Sequence file |
+| ------------- |
+| [chr1.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr1.a2m.bz2) |
+| [chr2.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr2.a2m.bz2) |
+| [chr3.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr3.a2m.bz2) |
+| [chr4.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr4.a2m.bz2) |
+| [chr5.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr5.a2m.bz2) |
+| [chr6.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr6.a2m.bz2) |
+| [chr7.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr7.a2m.bz2) |
+| [chr8.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr8.a2m.bz2) |
+| [chr9.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr9.a2m.bz2) |
+| [chr10.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr10.a2m.bz2) |
+| [chr11.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr11.a2m.bz2) |
+| [chr12.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr12.a2m.bz2) |
+| [chr13.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr13.a2m.bz2) |
+| [chr14.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr14.a2m.bz2) |
+| [chr15.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr15.a2m.bz2) |
+| [chr16.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr16.a2m.bz2) |
+| [chr17.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr17.a2m.bz2) |
+| [chr18.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr18.a2m.bz2) |
+| [chr19.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr19.a2m.bz2) |
+| [chr20.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr20.a2m.bz2) |
+| [chr21.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr21.a2m.bz2) |
+| [chr22.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chr22.a2m.bz2) |
+| [chrX.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/index-input/chrX.a2m.bz2) |
