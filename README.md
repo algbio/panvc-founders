@@ -62,7 +62,7 @@ The following archive contains the reads used in the experiment in gzip-compress
 
 | Reads |
 | ----- |
-| [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/genreads.tar) |
+| [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads.tar) |
 
 #### Founder sequences used when generating the indices
 
