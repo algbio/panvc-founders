@@ -64,11 +64,72 @@ The following archive contains the reads used in the experiment in gzip-compress
 | ----- |
 | [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads.tar) |
 
+#### Indices for use with `panvc_call_variants`
+
+The following archives contain indices generated with `panvc_index`.
+
+| Indices with all samples except the tested one |
+| ---------------------------------------------- |
+| [e-coli-g5-p0.001-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-p0.001-index.tar.bz2) |
+| [e-coli-g5-p0.002-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-p0.002-index.tar.bz2) |
+| [e-coli-g5-p0.004-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-p0.004-index.tar.bz2) |
+| [e-coli-g5-p0.008-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-p0.008-index.tar.bz2) |
+| [e-coli-g5-p0.016-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-p0.016-index.tar.bz2) |
+| [e-coli-g7-p0.001-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g7-p0.001-index.tar.bz2) |
+| [e-coli-g7-p0.002-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g7-p0.002-index.tar.bz2) |
+| [e-coli-g7-p0.004-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g7-p0.004-index.tar.bz2) |
+| [e-coli-g7-p0.008-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g7-p0.008-index.tar.bz2) |
+| [e-coli-g7-p0.016-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g7-p0.016-index.tar.bz2) |
+| [e-coli-g10-p0.001-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g10-p0.001-index.tar.bz2) |
+| [e-coli-g10-p0.002-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g10-p0.002-index.tar.bz2) |
+| [e-coli-g10-p0.004-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g10-p0.004-index.tar.bz2) |
+| [e-coli-g10-p0.008-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g10-p0.008-index.tar.bz2) |
+| [e-coli-g10-p0.016-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g10-p0.016-index.tar.bz2) |
+
+| Indices with nearest samples removed |
+| ------------------------------------ |
+| [e-coli-g5-m0.016-s0-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s0-index.tar.bz2) |
+| [e-coli-g5-m0.016-s1-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s1-index.tar.bz2) |
+| [e-coli-g5-m0.016-s2-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s2-index.tar.bz2) |
+| [e-coli-g5-m0.016-s3-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s3-index.tar.bz2) |
+| [e-coli-g5-m0.016-s4-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s4-index.tar.bz2) |
+| [e-coli-g5-m0.016-s5-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s5-index.tar.bz2) |
+| [e-coli-g5-m0.016-s6-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/indices/e-coli-g5-m0.016-s6-index.tar.bz2) |
+
+
 #### Founder sequences used when generating the indices
 
 | All sequences in one archive |
-| ---------------- |
+| ---------------------------- |
 | [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2) |
+
+| Individual input files |
+| ---------------------- |
+| [e-coli-g5-p0.001.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-p0.001.a2m.bz2) |
+| [e-coli-g5-p0.002.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-p0.002.a2m.bz2) |
+| [e-coli-g5-p0.004.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-p0.004.a2m.bz2) |
+| [e-coli-g5-p0.008.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-p0.008.a2m.bz2) |
+| [e-coli-g5-p0.016.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-p0.016.a2m.bz2) |
+| [e-coli-g7-p0.001.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g7-p0.001.a2m.bz2) |
+| [e-coli-g7-p0.002.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g7-p0.002.a2m.bz2) |
+| [e-coli-g7-p0.004.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g7-p0.004.a2m.bz2) |
+| [e-coli-g7-p0.008.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g7-p0.008.a2m.bz2) |
+| [e-coli-g7-p0.016.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g7-p0.016.a2m.bz2) |
+| [e-coli-g10-p0.001.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.001.a2m.bz2) |
+| [e-coli-g10-p0.002.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.002.a2m.bz2) |
+| [e-coli-g10-p0.004.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.004.a2m.bz2) |
+| [e-coli-g10-p0.008.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.008.a2m.bz2) |
+| [e-coli-g10-p0.016.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.016.a2m.bz2) |
+
+| Individual input files, nearest samples removed |
+| ----------------------------------------------- |
+| [e-coli-g5-m0.016-s0.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s0.a2m.bz2) |
+| [e-coli-g5-m0.016-s1.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s1.a2m.bz2) |
+| [e-coli-g5-m0.016-s2.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s2.a2m.bz2) |
+| [e-coli-g5-m0.016-s3.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s3.a2m.bz2) |
+| [e-coli-g5-m0.016-s4.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s4.a2m.bz2) |
+| [e-coli-g5-m0.016-s5.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5.a2m.bz2) |
+| [e-coli-g5-m0.016-s6.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6.a2m.bz2) |
 
 ### Take-one-out experiment with human chromosome 22
 
