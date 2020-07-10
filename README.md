@@ -66,7 +66,7 @@ The following archive contains the reads used in the experiment in gzip-compress
 
 #### Founder sequences used when generating the indices
 
-| Sequence archive |
+| All sequences in one archive |
 | ---------------- |
 | [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2) |
 
