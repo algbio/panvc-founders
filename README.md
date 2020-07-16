@@ -60,6 +60,23 @@ The following archives contain indices generated with `panvc_index`.
 
 See [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for sample scripts.
 
+#### Running the experiment
+
+1. Download the [index files](#indices-for-use-with-panvc_call_variants-1). For downloading all (or some) of the files, download [all-index-files.txt](experiments-with-artificial-mutations/all-index-files.txt), modify the file if need be, and do `wget --content-disposition --trust-server-names -i all-index-files.txt`.
+   * The indices may also be generated with `panvc_index`. The input files are listed under [Founder sequences used when generating the indices](#founder-sequences-used-when-generating-the-indices). Please see [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for scripts for processing the files in [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2).
+2. Move the archives to a directory called `indices` and extract the files.
+3. Download [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads.tar) for the reads used in the experiment and extract.
+4. In the working directory, create the subdirectories `panvc` (for PanVC’s output), `logs` and `edlib-scores`. The working directory should now have the following subdirectories:
+   * `indices`
+   * `genreads`
+   * `panvc`
+   * `logs`
+   * `edlib-scores`
+5. Download [call_cmds.py](experiments-with-artificial-mutations/call_cmds.py). Modify the first lines to set the path to `PanVC` and the amount of memory and number of threads used.
+6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
+7. Run `call_cmds.py` with Python (e.g. `python3.7 call_cmds.py`) to get a list of commands to run.
+8. After running PanVC, run `edlib-cmds.sh` to get a list of commands to run.
+
 #### Reads used in the experiment
 
 The following archive contains the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archive itself has not been re-compressed.)
