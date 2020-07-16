@@ -64,6 +64,23 @@ The following archive contains the reads used in the experiment in gzip-compress
 | ----- |
 | [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads.tar) |
 
+#### Variants
+
+The following archives contain the actual (not predicted) variants in the generated samples. The identifier of the removed samples is `SAMPLE0`.
+
+| Description | File |
+| ----------- | ---- |
+| Samples removed in the experiments | [variants-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/variants-truth.tar.gz) |
+| All samples | [variants-all.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/variants-all.tar.gz) |
+
+#### Sequences of the removed samples
+
+The following archives contain the actual sequences of the samples that were removed in the experiments.
+
+| Sequences |
+| --------- |
+| [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) |
+
 #### Indices for use with `panvc_call_variants`
 
 The following archives contain indices generated with `panvc_index`.
