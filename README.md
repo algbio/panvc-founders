@@ -22,6 +22,8 @@ We provide pregenerated indices for each experiment. In case you would like to p
 5. Create a text file called `chr_list.txt` alongside the A2M file. The contents of the file should be the number `1` followed by a newline.
 6. Run `panvc_index`. Please see [PanVC’s README](https://gitlab.com/dvalenzu/PanVC/-/blob/PanVC-2.0-rc-tsnorri/README.md) for details. The read length parameter should be set to a value greater than the read length used in the experiment in question. For the maximum edit distance, we used the value 10.
 
+---
+
 ## Experiment data
 
 ### Founder quality experiment
@@ -51,6 +53,8 @@ The following archives contain indices generated with `panvc_index`.
 | ----- | ---- |
 | Founder sequences | [founder-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/founder-sequences.a2m.bz2) |
 | Predicted sequences | [predicted-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/predicted-sequences.a2m.bz2) |
+
+---
 
 ### Experiments with artificial mutations
 
@@ -148,6 +152,8 @@ The following archives contain indices generated with `panvc_index`.
 | [e-coli-g5-m0.016-s5.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5.a2m.bz2) |
 | [e-coli-g5-m0.016-s6.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6.a2m.bz2) |
 
+---
+
 ### Take-one-out experiment with human chromosome 22
 
 #### Reads used in the experiment
@@ -181,6 +187,8 @@ The following archives contain indices generated with `panvc_index`.
 | [no-NA12273.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA12273.tar.bz2) |
 | [no-NA18954.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA18954.tar.bz2) |
 | [no-NA19238.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/founder-sequences/no-NA19238.tar.bz2) |
+
+---
 
 ### Scalability experiment
 
