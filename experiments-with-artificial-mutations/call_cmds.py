@@ -6,7 +6,7 @@ panvc_call_cmd = "/proj/tnorri/Checkout/git/panvc-test-version/panvc_call_varian
 
 def output_call_cmd(basename, index_dir, reads_1, reads_2, vc):
 	global panvc_call_cmd
-	print(f"{panvc_call_cmd} --pgindex_dir {index_dir} -r1 {reads_1} -r2 {reads_2} -o panvc-call/{basename} --vc_base_method {vc.upper()} > logs/{basename}.log 2>&1")
+	print(f"{panvc_call_cmd} --pgindex_dir {index_dir} -r1 {reads_1} -r2 {reads_2} -o panvc/{basename} --vc_base_method {vc.upper()} > logs/{basename}.log 2>&1")
 
 for cov in [10, 20]:
 	for vc in ["samtools", "gatk"]:
