@@ -77,7 +77,8 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 5. Download [call_cmds.py](experiments-with-artificial-mutations/call_cmds.py). Modify the first lines to set the path to `PanVC` and the amount of memory and number of threads used.
 6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
 7. Run `call_cmds.py` with Python (e.g. `python3.7 call_cmds.py`) to get a list of commands to run.
-8. After running PanVC, run `edlib-cmds.sh` to get a list of commands to run.
+8. XXX generate predicted sequences
+9. After running PanVC, run `edlib-cmds.sh` to get a list of commands to run.
 
 #### Reads used in the experiment
 
