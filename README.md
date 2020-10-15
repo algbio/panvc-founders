@@ -26,8 +26,8 @@ To generate founder sequences from known variants, [vcf2multialign](https://gith
 
 To run any of the experiments with founder sequences, please download and unarchive the reads in question and do one of the following:
 
-* Download and unarchive the pre-generated indices and call variants by running Snakemake with `Snakefile.call`
-* Download and decompress the founder sequences, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
+* Download and unarchive the pre-generated indices provided with the experiment in question and call variants by running Snakemake with `Snakefile.call`
+* Download and decompress the founder sequences provided with the experiment in question, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
 
 Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
 
