@@ -1,15 +1,29 @@
 # PanVC with Founder Sequences
 
-PanVC is a variant calling workflow that uses short reads as its input. The reads are aligned to an index generated from a multiple sequence alignment. The newest version of the workflow utilises founder sequences for indexing.
+PanVC is a variant calling workflow that uses short reads as its input. The reads are aligned to an index generated from a multiple sequence alignment. The newest version of the workflow utilizes founder sequences for indexing.
 
-We provide the following data files for testing PanVC with founder sequences.
+Running PanVC consists of the following phases:
 
-To build PanVC, please follow the instructions on the [sample workflow](https://github.com/algbio/panvc-sample-workflow).
+ * Generating founder sequences from known variants
+ * Indexing the founder sequences
+ * Running the read alignment and variant calling workflow
+
+Our software consists of the following components:
+
+ * [vcf2multialign](https://github.com/tsnorri/vcf2multialign) for generating founder sequences and predicted sequences from known variants
+ * [PanVC](https://gitlab.com/dvalenzu/PanVC/-/tree/PanVC-2.0-rc-tsnorri) includes tools for various phases of the variant calling workflow, including indexing the known sequences, aligning short reads to the index and generating an ad-hoc reference sequence for re-aligning the reads
+ * [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow) for running a variant calling workflow that utilizes PanVC
+
+## Installing
+
+Please follow the installation instructions for [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow).
+
+## Running the experiments
 
 To run any of the experiments with founder sequences, please download and unarchive the reads in question and do one of the following:
 
-* Download and unarchive the pre-generated indices and run `panvc_call_variants` with the reads and each of the indices.
-* Download and decompress the founder sequences, prepare input for `panvc_index`, generate the index and run `panvc_call_variants` with the reads and each of the indices.
+* Download and unarchive the pre-generated indices and call variants by running Snakemake with `Snakefile.call`
+* Download and decompress the founder sequences, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
 
 Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
 
