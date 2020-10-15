@@ -24,10 +24,12 @@ To generate founder sequences from known variants, [vcf2multialign](https://gith
 
 ## Running the experiments
 
-To run any of the experiments with founder sequences, please download and unarchive the reads in question and do one of the following:
+On a high level, running any of the experiments consists of the following steps:
 
-* Download and unarchive the pre-generated indices provided with the experiment in question and call variants by running Snakemake with `Snakefile.call`
-* Download and decompress the founder sequences provided with the experiment in question, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
+ 1. Download and unarchive the reads provided with the experiment
+ 2. Do one of the following:
+    * Download and unarchive the pre-generated indices provided with the experiment in question and call variants by running Snakemake with `Snakefile.call`
+    * Download and decompress the founder sequences provided with the experiment in question, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
 
 Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
 
@@ -35,14 +37,14 @@ The [artificial mutation experiment](#experiments-with-artificial-mutations) sho
 
 ### Generating indices with PanVC
 
-We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices. In general, PanVC’s indexing input consists of a directory with two files: `chr_list.txt` and `pangenome1.a2m`. The index consists of various files that `panvc_index` places in a given directory.
+We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices.
 
-1. Download the compressed founder sequences for the experiment in question. One sequence file corresponds to one index.
-2. Decompress the file with e.g. `pbzip2` or `bzip2`.
-3. Create a directory for the index in question.
-4. Move the decompressed A2M file to the new directory and rename it `pangenome1.a2m`.
-5. Create a text file called `chr_list.txt` alongside the A2M file. The contents of the file should be the number `1` followed by a newline.
-6. Run `panvc_index`. Please see [PanVC’s README](https://gitlab.com/dvalenzu/PanVC/-/blob/PanVC-2.0-rc-tsnorri/README.md) for details. The read length parameter should be set to a value greater than the read length used in the experiment in question. For the maximum edit distance, we used the value 10.
+ 1. Download the compressed founder sequences for the experiment in question. In all our experiments, one sequence file corresponds to one index.
+ 2. Decompress the file with e.g. `pbzip2` or `bzip2`.
+ 3. Run `python3 generate_snakemake_config_for_index.py`
+ 4. Run Snakemake with `Snakefile.index`.
+
+Please see [README from the sample workflow](https://github.com/algbio/panvc-sample-workflow/blob/master/README.md#preparing-an-index) for more detailed instructions. The read length parameter should be set to a value greater than the read length used in the experiment in question (e.g. 105). For the maximum edit distance, we used the value 10.
 
 ---
 
