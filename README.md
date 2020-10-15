@@ -20,6 +20,8 @@ All necessary components for variant calling from our provided inputs are instal
 
 Tools for generating a predicted sequence from variants are provided with [vcf2multialign](https://github.com/tsnorri/vcf2multialign). For comparing the predicted sequences, we recommend [edlib](https://github.com/Martinsos/edlib).
 
+To generate founder sequences from known variants, [vcf2multialign](https://github.com/tsnorri/vcf2multialign) can be used.
+
 ## Running the experiments
 
 To run any of the experiments with founder sequences, please download and unarchive the reads in question and do one of the following:
