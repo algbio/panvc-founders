@@ -1,5 +1,7 @@
 # PanVC Experiments with Founder Sequences
 
+PanVC is a variant calling workflow that uses short reads as its input. The reads are aligned to an index generated from a multiple sequence alignment. The newest version of the workflow utilises founder sequences for indexing.
+
 We provide the following data files for testing PanVC.
 
 To build PanVC, please follow the instructions on the [repository page of PanVC](https://gitlab.com/dvalenzu/PanVC/-/tree/PanVC-2.0-rc-tsnorri).
