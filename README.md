@@ -33,7 +33,7 @@ On a high level, running any of the experiments consists of the following steps:
 
 Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
 
-The [artificial mutation experiment](#experiments-with-artificial-mutations) should be the fastest one to run.
+The [artificial mutation experiment](#experiments-with-artificial-mutations) should be the fastest one to run with one input.
 
 ### Generating indices with PanVC
 
