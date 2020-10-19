@@ -258,15 +258,29 @@ The following archives contain indices generated with `Snakefile.index`.
 | [e-coli-g10-p0.016-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.016-msd50-precalc.a2m.bz2)   | 10 | 0.016 | 50  |
 | [e-coli-g10-p0.016-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g10-p0.016-msd100-precalc.a2m.bz2) | 10 | 0.016 | 100 |
 
-| Individual input files, nearest samples removed |
-| ----------------------------------------------- |
-| [e-coli-g5-m0.016-s0.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s0.a2m.bz2) |
-| [e-coli-g5-m0.016-s1.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s1.a2m.bz2) |
-| [e-coli-g5-m0.016-s2.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s2.a2m.bz2) |
-| [e-coli-g5-m0.016-s3.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s3.a2m.bz2) |
-| [e-coli-g5-m0.016-s4.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s4.a2m.bz2) |
-| [e-coli-g5-m0.016-s5.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5.a2m.bz2) |
-| [e-coli-g5-m0.016-s6.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6.a2m.bz2) |
+| Individual input files, nearest samples removed | Minimum subgraph distance |
+| ----------------------------------------------- | ------------------------- |
+| [e-coli-g5-m0.016-s0-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s0-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s0-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s0-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s0-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s0-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s1-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s1-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s1-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s1-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s1-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s1-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s2-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s2-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s2-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s2-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s2-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s2-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s3-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s3-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s3-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s3-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s3-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s3-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s4-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s4-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s4-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s4-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s4-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s4-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s5-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s5-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s5-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s5-msd100-precalc.a2m.bz2) | 100 |
+| [e-coli-g5-m0.016-s6-msd25-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6-msd25-precalc.a2m.bz2)   | 25  |
+| [e-coli-g5-m0.016-s6-msd50-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6-msd50-precalc.a2m.bz2)   | 50  |
+| [e-coli-g5-m0.016-s6-msd100-precalc.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/index-input/e-coli-g5-m0.016-s6-msd100-precalc.a2m.bz2) | 100 |
 
 ---
 
