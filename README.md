@@ -290,9 +290,9 @@ The following archives contain the reads used in the experiment in gzip-compress
 | [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov20.tar) | 20x |
 | [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov50.tar) | 50x |
 
-#### Indices for use with `panvc_call_variants`
+#### Indices for use with `Snakefile.call`
 
-The following archives contain indices generated with `panvc_index`.
+The following archives contain indices generated with `Snakefile.index`.
 
 | Index file |
 | ---------- |
@@ -316,9 +316,9 @@ The following archives contain indices generated with `panvc_index`.
 
 ### Scalability experiment
 
-#### Indices for use with `panvc_call_variants`
+#### Indices for use with `Snakefile.call`
 
-The following archives contain indices generated with `panvc_index`.
+The following archives contain indices generated with `Snakefile.index`.
 
 | Index file |
 | ---------- |
