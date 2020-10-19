@@ -62,14 +62,14 @@ The following archives contain the reads used in the experiment in gzip-compress
 | [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x |
 | [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x |
 
-#### Indices for use with `panvc_call_variants`
+#### Indices for use with `Snakefile.call`
 
-The following archives contain indices generated with `panvc_index`.
+The following archives contain indices generated with `Snakefile.index`.
 
 | Index | Index file |
 | ----- | ---------- |
-| Index generated with founder sequences | [founder-sequence-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/founder-sequence-index.tar.bz2) |
-| Index generated with all predicted sequences | [predicted-sequence-index.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/predicted-sequence-index.tar.bz2) |
+| Index generated with founder sequences | [index-founders.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2) |
+| Index generated with all predicted sequences | [index-predicted.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2) |
 
 #### Sequences used as input when generating the indices
 
