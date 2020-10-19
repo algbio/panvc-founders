@@ -16,9 +16,9 @@ Our software consists of the following components:
 
 ## Installing
 
-All necessary components for variant calling from our provided inputs are installed as part of [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow). Please follow its installation instructions. 
+All necessary components for variant calling from our provided inputs are installed as part of [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow). Please follow its installation instructions. Given short reads as input, the workflow outputs a set of called variants.
 
-Tools for generating a predicted sequence from variants are provided with [vcf2multialign](https://github.com/tsnorri/vcf2multialign). For comparing the predicted sequences, we recommend [edlib](https://github.com/Martinsos/edlib).
+Tools for generating a predicted sequence from variants are provided with [vcf2multialign](https://github.com/tsnorri/vcf2multialign). For determining the edit distances of the predicted sequences to the hidden truth sequences, we recommend [edlib](https://github.com/Martinsos/edlib).
 
 To generate founder sequences from known variants, [vcf2multialign](https://github.com/tsnorri/vcf2multialign) can be used.
 
