@@ -112,7 +112,7 @@ The following archive contains the reads used in the experiment in gzip-compress
 
 #### Variants
 
-The following archives contain the actual (not predicted) variants in the generated samples. The identifier of the removed samples is `SAMPLE0`.
+The following archives contain the actual (not predicted) variants in the generated samples. The identifier of the removed sample in all cases is `SAMPLE0`.
 
 | Description | File |
 | ----------- | ---- |
