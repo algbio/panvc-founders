@@ -86,7 +86,7 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 
 #### Running the experiment
 
-1. Download the [index files](#indices-for-use-with-panvc_call_variants-1). For downloading all (or some) of the files, download [all-index-files.txt](experiments-with-artificial-mutations/all-index-files.txt), modify the file if need be, and do `wget --content-disposition --trust-server-names -i all-index-files.txt`.
+1. Download the [index files](#indices-for-use-with-snakefilecall-1). For downloading all (or some) of the files, download [all-index-files.txt](experiments-with-artificial-mutations/all-index-files.txt), modify the file if need be, and do `wget --content-disposition --trust-server-names -i all-index-files.txt`.
    * The indices may also be generated with `Snakefile.index`. The input files are listed under [Founder sequences used when generating the indices](#founder-sequences-used-when-generating-the-indices). Please see [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for scripts for processing the files in [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2).
 2. Extract the contents of the archives. Each of the indices will be placed in a subdirectory called `indices`.
 3. Download [genreads.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads.tar) for the reads used in the experiment and extract.
