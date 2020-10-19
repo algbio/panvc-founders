@@ -127,9 +127,9 @@ The following archives contain the actual sequences of the samples that were rem
 | --------- |
 | [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) |
 
-#### Indices for use with `panvc_call_variants`
+#### Indices for use with `Snakefile.call`
 
-The following archives contain indices generated with `panvc_index`.
+The following archives contain indices generated with `Snakefile.index`.
 
 | Indices with all samples except the tested one | Generation | Mutation probability | Minimum subgraph distance |
 | ---------------------------------------------- | ---------- | -------------------- | ------------------------- |
