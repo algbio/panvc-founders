@@ -91,10 +91,11 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 2. Extract the contents of the archives. Each of the indices will be placed in a subdirectory called `indices`.
 3. Download (some of) [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. In addition to the separate reads, the workflow requires the same reads unpaired and renamed in one input. This is done automatically as part of the workflow but we have also prepared the files in question.
 4. Download [output_config_and_call_commands.py](experiments-with-artificial-mutations/output_config_and_call_commands.py). Modify the first lines to set the path to PanVC sample workflow as well as other parameters.
+5. Download [gen-predicted-sequences-cmds.sh](experiments-with-artificial-mutations/gen-predicted-sequences-cmds.sh). Modify the first lines to set the path to vcf2multialign as well as other parameters.
 6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
-5. Run `output_config_and_call_commands.py` with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands to run.
-6. XXX generate predicted sequences
-7. After running PanVC, run `edlib-cmds.sh` to get a list of commands to run.
+7. Run `output_config_and_call_commands.py` with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands for running the variant calling workflow. Run (some of) the commands.
+8. Run `gen-predicted-sequences-cmds.sh` to get a list of commands to generate predicted sequences from the variant calling results. Run (some of) the commands.
+9. Run `edlib-cmds.sh` to get a list of commands to calculate edit distances of the predicted sequences to the hidden truth.
 
 #### Reads used in the experiment
 
