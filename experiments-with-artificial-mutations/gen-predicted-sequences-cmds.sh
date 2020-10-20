@@ -26,7 +26,7 @@ function output_cmd
 			input_vcf="${exp_path}/ext_vc/pg_variants.${vc}.vcf"
 			output_name="${experiment}-${vc}-panvc.txt"
 			output_path="${output_root}/${output_name}"
-			echo "'${v2m_path}/vcf_to_unaligned' --reference='${reference_path}' --variants='${input_vcf}' --output='${output_path}' -s 0 -p 0 -c '${chr_name}' --log='log-vcf_to_unaligned/${output_name}.log'"
+			echo "'${v2m_path}/vcf_to_unaligned' --reference='${reference_path}' --variants='${input_vcf}' --output='${output_path}' -s 0 -p 0 -c '${chr_name}'"
 		fi
 		
 		if (( 1 == ${handle_baseline} ))
@@ -34,7 +34,7 @@ function output_cmd
 			input_vcf="${exp_path}/baseline_vc/variants.${vc}.vcf"
 			output_name="${experiment}-${vc}-baseline.txt"
 			output_path="${output_root}/${experiment}-${vc}-baseline.txt"
-			echo "'${v2m_path}/vcf_to_unaligned' --reference='${reference_path}' --variants='${input_vcf}' --output='${output_path}' -s 0 -p 0 -c '${chr_name}' --log='log-vcf_to_unaligned/${output_name}.log'"
+			echo "'${v2m_path}/vcf_to_unaligned' --reference='${reference_path}' --variants='${input_vcf}' --output='${output_path}' -s 0 -p 0 -c '${chr_name}'"
 		fi
 	done
 }
