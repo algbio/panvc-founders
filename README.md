@@ -90,9 +90,9 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
    * The indices may also be generated with `Snakefile.index`. The input files are listed under [Founder sequences used when generating the indices](#founder-sequences-used-when-generating-the-indices). Please see [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for scripts for processing the files in [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2).
 2. Extract the contents of the archives. Each of the indices will be placed in a subdirectory called `indices`.
 3. Download (some of) [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. In addition to the separate reads, the workflow requires the same reads unpaired and renamed in one input. This is done automatically as part of the workflow but we have also prepared the files in question.
-4. Download [call_cmds.py](experiments-with-artificial-mutations/call_cmds.py). Modify the first lines to set the path to `PanVC` and the amount of memory and number of threads used.
+4. Download [output_config_and_call_commands.py](experiments-with-artificial-mutations/output_config_and_call_commands.py). Modify the first lines to set the path to PanVC sample workflow as well as other parameters.
 6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
-5. Run `call_cmds.py` with Python (e.g. `python3.7 call_cmds.py`) to get a list of commands to run.
+5. Run `output_config_and_call_commands.py` with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands to run.
 6. XXX generate predicted sequences
 7. After running PanVC, run `edlib-cmds.sh` to get a list of commands to run.
 
