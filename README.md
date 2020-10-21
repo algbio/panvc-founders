@@ -100,7 +100,7 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 
 #### Reads used in the experiment
 
-The following archive contains the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archive itself has not been re-compressed.)
+The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archive itself has not been re-compressed.)
 
 | Reads | Coverage | Note |
 | ----- | -------- | ---- |
