@@ -14,7 +14,7 @@ minimum_subgraph_distances = [25, 50, 100]										# Indices with the minimum s
 coverages = [10, 20]															# Reads with the coverages to use
 variant_callers = ["GATK", "SAMTOOLS"]											# Variant callers to run
 
-max_memory_mb = 1000 * max_memory_gb # Multiply by 1000 in order to keep some memory free.
+max_memory_mb = 1000 * max_memory_gb # Multiply by 1000 (instead of 1024) in order to keep some memory free.
 
 
 sys.path.append(panvc_sample_workflow_path)
