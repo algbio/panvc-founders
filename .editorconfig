@@ -1,4 +1,4 @@
-[*.{py}]
+[*.{py,sh}]
 charset = utf-8
 indent_style = tab
 indent_size = 4
