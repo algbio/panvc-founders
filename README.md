@@ -94,7 +94,7 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 5. Download [gen-predicted-sequences-cmds.sh](experiments-with-artificial-mutations/gen-predicted-sequences-cmds.sh). Modify the first lines to set the path to vcf2multialign as well as other parameters.
 6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
 7. Download e-coli.fa.gz. Some of our tools expect the input FASTA not to contain any newlines as part of the sequence; the file in question has been modified accordingly.
-8. Run `output_config_and_call_commands.py` with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands for running the variant calling workflow. Run (some of) the commands.
+8. Run output_config_and_call_commands.py with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands for running the variant calling workflow. Run (some of) the commands.
 9. Run `gen-predicted-sequences-cmds.sh` to get a list of commands to generate predicted sequences from the variant calling results. Run (some of) the commands.
 10. Run `edlib-cmds.sh` to get a list of commands to calculate edit distances of the predicted sequences to the hidden truth.
 
