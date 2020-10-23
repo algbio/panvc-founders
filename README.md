@@ -14,37 +14,41 @@ Our software consists of the following components:
  * [PanVC](https://gitlab.com/dvalenzu/PanVC/-/tree/PanVC-2.0-rc-tsnorri) includes tools for various phases of the variant calling workflow, including indexing the known sequences, aligning short reads to the index and generating an ad-hoc reference sequence for re-aligning the reads
  * [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow) for running a variant calling workflow that utilizes PanVC
 
+
+## Requirements
+ 
+ * [Snakemake](https://snakemake.readthedocs.io/) (tested with version 5.24.0)
+ * [Conda](https://conda.io/) (tested with version 4.8.5)
+
+
 ## Installing
 
-All necessary components for variant calling from our provided inputs are installed as part of [PanVC sample workflow](https://github.com/algbio/panvc-sample-workflow). Please follow its installation instructions. Given short reads as input, the workflow outputs a set of called variants.
+All necessary components for running the experiments from our provided inputs are installed by running Snakemake, which in turn invokes Conda. To install the components to a predefined location, please run the following commands. (By default, i.e. when `--conda-prefix` is not given, the Conda environment is placed in a hidden .snakemake directory in the working directory when Snakemake is run. This may be less convenient for running multiple experiments.)
 
-Tools for generating a predicted sequence from variants are provided with [vcf2multialign](https://github.com/tsnorri/vcf2multialign). For determining the edit distances of the predicted sequences to the hidden truth sequences, we recommend [edlib](https://github.com/Martinsos/edlib).
+Please note, however, that prebuilt binaries for some of the software are only available for Linux on x86-64.
 
-To generate founder sequences from known variants, [vcf2multialign](https://github.com/tsnorri/vcf2multialign) can be used.
+ 1. Clone the repository with `git clone --recursive https://github.com/algbio/panvc-founders.git`
+ 2. `cd panvc-founders`
+ 3. Prepare the Conda environments with the following commands:
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment`
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment_gatk`
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment_experiments`
+
 
 ## Running the experiments
 
-On a high level, running any of the experiments consists of the following steps:
+On a high level, the experiments are run as follows:
 
- 1. Download and unarchive the reads provided with the experiment
- 2. Do one of the following:
-    * Download and unarchive the pre-generated indices provided with the experiment in question and call variants by running Snakemake with `Snakefile.call`
-    * Download and decompress the founder sequences provided with the experiment in question, generate the index by running Snakemake with `Snakefile.index` and call variants by running Snakemake with `Snakefile.call` with the reads and each of the indices.
+ 1. Decide which experiments to run and modify the configuration files in the subdirectory of the corresponding experiment.
+ 2. Download and unarchive the reads provided with the experiments
+ 3. Do one of the following:
+    * Download and unarchive the pre-generated indices provided with the experiments in question and call variants by running Snakemake
+    * Download and decompress the founder sequences provided with the experiments in question, generate the index and call variants by running Snakemake
+ 4. Process the variant calling results to e.g. calculate edit distances from a specific sequence or calculate statistics from the called variants.
 
-Each experiment involves aligning different sets of reads to different indices. In the subdirectories of this repository, we have provided some scripts that may be helpful in automatizing the tasks.
+We provide scripts to automatize these steps.
 
-The [artificial mutation experiment](#experiments-with-artificial-mutations) should be the fastest one to run with one input.
-
-### Generating indices with PanVC
-
-We provide pregenerated indices for each experiment. In case you would like to prepare the index yourself, please follow these steps. The subdirectories in this repository also contain sample scripts for generating the indices.
-
- 1. Download the compressed founder sequences for the experiment in question. In all our experiments, one sequence file corresponds to one index.
- 2. Decompress the file with e.g. `pbzip2` or `bzip2`.
- 3. Run `python3 generate_snakemake_config_for_index.py`
- 4. Run Snakemake with `Snakefile.index`.
-
-Please see [README from the sample workflow](https://github.com/algbio/panvc-sample-workflow/blob/master/README.md#preparing-an-index) for more detailed instructions. The read length parameter should be set to a value greater than the read length used in the experiment in question (e.g. 105). For the maximum edit distance, we used the value 10.
+Each experiment involves aligning different sets of reads to different indices. Inputs for the [artificial mutation experiment](#experiments-with-artificial-mutations) are the smallest and therefore parts of the experiment should be the fastest to run.
 
 ---
 
@@ -86,17 +90,35 @@ See [experiments-with-artificial-mutations](experiments-with-artificial-mutation
 
 #### Running the experiment
 
-1. Download the [index files](#indices-for-use-with-snakefilecall-1). For downloading all (or some) of the files, download [all-index-files.txt](experiments-with-artificial-mutations/all-index-files.txt), modify the file if need be, and do `wget --content-disposition --trust-server-names -i all-index-files.txt`.
-   * The indices may also be generated with `Snakefile.index`. The input files are listed under [Founder sequences used when generating the indices](#founder-sequences-used-when-generating-the-indices). Please see [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for scripts for processing the files in [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2).
-2. Extract the contents of the archives. Each of the indices will be placed in a subdirectory called `indices`.
-3. Download (some of) [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. In addition to the separate reads, the workflow requires the same reads unpaired and renamed in one input. This is done automatically as part of the workflow but we have also prepared the files in question.
-4. Download [output_config_and_call_commands.py](experiments-with-artificial-mutations/output_config_and_call_commands.py). Modify the first lines to set the path to PanVC sample workflow as well as other parameters.
-5. Download [gen-predicted-sequences-cmds.sh](experiments-with-artificial-mutations/gen-predicted-sequences-cmds.sh). Modify the first lines to set the path to vcf2multialign as well as other parameters.
-6. Download [edlib-cmds.sh](experiments-with-artificial-mutations/edlib-cmds.sh). Modify the first lines to set the path to `Edlib`.
-7. Download e-coli.fa.gz. Some of our tools expect the input FASTA not to contain any newlines as part of the sequence; the file in question has been modified accordingly.
-8. Run output_config_and_call_commands.py with Python (e.g. `python3 output_config_and_call_commands.py`) to output the configuration files and to get a list of commands for running the variant calling workflow. Run (some of) the commands.
-9. Run `gen-predicted-sequences-cmds.sh` to get a list of commands to generate predicted sequences from the variant calling results. Run (some of) the commands.
-10. Run `edlib-cmds.sh` to get a list of commands to calculate edit distances of the predicted sequences to the hidden truth.
+The experiment consists of running the workflow with 192 different inputs. For testing purposes, a subset of the inputs may be used. To run the experiment, please follow these steps.
+
+To simplify running the experiment, we provide a helper script, [experiment\_helper.py](experiments-with-artificial-mutations/experiment_helper.py). All its available options may be listed with `python3 experiment_helper.py --help`.
+
+ 1. `cd experiments-with-artificial-mutations`
+ 2. The identifiers of the inputs are listed in [all-experiment-names.txt](experiments-with-artificial-mutations/all-experiment-names.txt). Decide with which inputs to run the experiment, copy the list with e.g. `cp -i all-experiment-names.txt experiment-names.txt` and possibly remove some of the inputs.
+ 3. Do one of the following:
+    * Download prepared indices needed to run the experiment as follows:
+        1. Create a list of the compressed index URLs with `python3 experiment_helper.py --print-index-urls --experiment-list experiment-names.txt > index-urls.txt`
+        2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-urls.txt`
+        3. Extract the contents of the files. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
+    * Download A2M inputs and generate the indices as follows:
+        1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
+        2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
+        3. Extract the contents of the files to a subdirectory called *a2m*.
+        4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list all-experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
+ 4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. 
+ 5. Download [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) and extract. The plain text files should be automatically placed in a subdirectory called *sequences-truth*.
+ 6. Run the variant calling workflow. To this end, get a list of commands from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-variant-calling-commands --experiment-list all-experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
+ 7. Generate the predicted sequences from the variants. As the process is rather I/O intensive, we recommend using one core with Snakemake: `python3 experiment_helper.py --print-predicted-sequence-generation-commands --experiment-list all-experiment-names.txt --snakemake-arguments '--cores 1 --conda-prefix /path/to/conda/environment' | bash -x - e`
+ 8. Compare the predicted sequences to the truth with Edlib: `python3 experiment_helper.py --print-sequence-comparison-commands --experiment-list all-experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`
+
+The results are placed in subdirectories as listed in the following table.
+
+| Edit distances from the truth                             | edlib-scores                                                    |
+| Variants called with the PanVC workflow using GATK        | call/*experiment-identifier*/ext\_vc/pg\_variants.gatk.vcf      |
+| Variants called with the PanVC workflow using Samtools    | call/*experiment-identifier*/ext\_vc/pg\_variants.samtools.vcf  |
+| Variants called with the baseline workflow using GATK     | call/*experiment-identifier*/baseline\_vc/variants.gatk.vcf     |
+| Variants called with the baseline workflow using Samtools | call/*experiment-identifier*/baseline\_vc/variants.samtools.vcf |
 
 #### Reads used in the experiment
 
