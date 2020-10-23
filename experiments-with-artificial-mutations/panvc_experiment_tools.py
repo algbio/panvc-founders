@@ -1,6 +1,9 @@
 # Copyright (c) Tuukka Norri 2020
 # Licenced under the MIT licence.
 
+import yaml
+
+
 def remove_prefix(s, prefix):
 	"""Remove the given prefix from s"""
 	if s.startswith(prefix):
