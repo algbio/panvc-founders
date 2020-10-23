@@ -114,6 +114,8 @@ To simplify running the experiment, we provide a helper script, [experiment\_hel
 
 The results are placed in subdirectories as listed in the following table.
 
+| Result                                                    | Directory                                                       |
+| --------------------------------------------------------- | --------------------------------------------------------------- |
 | Edit distances from the truth                             | edlib-scores                                                    |
 | Variants called with the PanVC workflow using GATK        | call/*experiment-identifier*/ext\_vc/pg\_variants.gatk.vcf      |
 | Variants called with the PanVC workflow using Samtools    | call/*experiment-identifier*/ext\_vc/pg\_variants.samtools.vcf  |
