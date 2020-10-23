@@ -1,0 +1,13 @@
+max_edit_distance: 10
+max_memory_MB: 16000
+max_read_len: 105
+ploidy: 1
+ploidy_file: 1
+sensibility: 5
+tempdir: /wrk/users/tnorri/tmp
+variant_caller:
+- gatk
+- samtools
+workflow:
+- pg
+- baseline

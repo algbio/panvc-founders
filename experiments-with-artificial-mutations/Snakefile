@@ -1,0 +1,130 @@
+# Copyright (c) Tuukka Norri 2020
+# Licenced under the MIT licence.
+
+import re
+from panvc_experiment_tools import list_experiment_names
+
+
+exp_name_re = re.compile(r"""
+	^
+	g(?P<gen> \d+)
+	-
+	p(?P<mrate> 0[.]\d+)
+	-
+	cov(?P<cov> \d+)
+	-
+	((
+		(?P<rg10> read[_]g10) |
+		(s(?P<seg> \d+))
+	) -)?
+	msd(?P<msd> \d+)
+	$
+""", re.VERBOSE)
+
+
+def exp_name_parts(exp_name):
+	"""Parse experiment parameters from its name."""
+	res = exp_name_re.match(exp_name)
+	assert res
+	return res.group("gen"), res.group("mrate"), res.group("cov"), res.group("msd"), res.group("seg"), res.group("rg10")
+
+
+def chr_name(exp_name):
+	"""Determine chromosome name from experiment name."""
+	gen, mrate, cov, msd, seg, rg10 = exp_name_parts(exp_name)
+
+	if rg10 is not None:
+		return f"e-coli-g{gen}-p{mrate}-msd{msd}-precalc"
+	elif seg is not None:
+		return f"e-coli-g{gen}-m{mrate}-s{seg}-msd{msd}-precalc"
+	else:
+		return f"e-coli-g{gen}-p{mrate}-msd{msd}-precalc"
+
+
+def truth_file_name(exp_name):
+	"""Determine the name of the file that contains the actual sequence."""
+	gen, mrate, cov, msd, seg, rg10 = exp_name_parts(exp_name)
+	return f"sequences-truth/e-coli-g{gen}-p{mrate}-sample0.txt"
+
+
+def output_files_predicted():
+	global config
+	workflows = config["workflow"]
+	variant_callers = config["variant_caller"]
+	exp_names = list_experiment_names(config["experiment_names"])
+
+	def helper():
+		for exp_name in exp_names:
+			if "pg" in workflows:
+				for vc in variant_callers:
+					yield f"predicted-sequences/{exp_name}/predicted.panvc.{vc}.txt"
+			if "baseline" in workflows:
+				for vc in variant_callers:
+					yield f"predicted-sequences/{exp_name}/predicted.baseline.{vc}.txt"
+	return [x for x in helper()]
+
+
+output_files_scores():
+	global config
+	workflows = config["workflow"]
+	variant_callers = config["variant_caller"]
+	exp_names = list_experiment_names(config["experiment_names"])
+
+	def helper():
+		for exp_name in exp_names:
+			if "pg" in workflows:
+				for vc in variant_callers:
+					yield f"edlib-scores/{exp_name}.panvc.{vc}.txt"
+			if "baseline" in workflows:
+				for vc in variant_callers:
+					yield f"edlib-scores/{exp_name}.baseline.{vc}.txt"
+	return [x for x in helper()]
+
+
+rule edit_distances:
+	input:	output_files_scores()
+	script:
+		print("Done.")
+
+
+rule predicted_sequences:
+	input:	output_files_predicted()
+	script:
+		print("Done.")
+
+
+rule edit_distance:
+	message:			"Calculating edit distance"
+	conda:				"../experiment_env.yaml"
+	input:
+		predicted_seq	= "predicted-sequenes/{exp_name}/predicted.{workflow}.{vc}.txt"
+		hidden_truth	= truth_file_name("{exp_name}")
+	output:				"edlib-scores/{exp_name}.{workflow}.{vc}.txt"
+	shell:
+		"edlib-aligner {predicted_seq} {hidden_Truth} > {output} 2>&1"
+
+
+rule gen_predicted_from_pg:
+	message:			"Generating predicted sequence"
+	conda:				"../panvc-sample-workflow/workflow/envs/panvc.yaml"
+	input:
+		ref_seq			= "e.coli.fa.gz",
+		vcf				= "call/{exp_name}/ext_vc/pg_variants.{vc}.vcf"
+	output:				"predicted-sequences/{exp_name}/predicted.panvc.{vc}.txt"
+	params:
+		chrom			= chr_name("{exp_name}")
+	shell:
+		"vcf_to_unaligned --reference={input.ref_seq} --variants={input.vcf} --output={output} -s 0 -p 0 -c {params.chrom}"
+
+
+rule gen_predicted_from_baseline:
+	message:			"Generating predicted sequence"
+	conda:				"../panvc-sample-workflow/workflow/envs/panvc.yaml"
+	input:
+		ref_seq			= "e.coli.fa.gz",
+		vcf				= "call/{exp_name}/baseline_vc/variants.{vc}.vcf"
+	output:				"predicted-sequences/{exp_name}/predicted.panvc.{vc}.txt"
+	params:
+		chrom			= chr_name("{exp_name}")
+	shell:
+		"vcf_to_unaligned --reference={input.ref_seq} --variants={input.vcf} --output={output} -s 0 -p 0 -c {params.chrom}"

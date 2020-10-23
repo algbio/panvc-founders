@@ -1,0 +1,7 @@
+benchmark_dir: benchmark-index/e-coli-g7-p0.001-msd100-precalc
+index_root: indices/e-coli-g7-p0.001-msd100-precalc
+input_a2m:
+- !!python/tuple
+  - e-coli-g7-p0.001-msd100-precalc
+  - a2m/e-coli-g7-p0.001-msd100-precalc.a2m
+n_refs: 40

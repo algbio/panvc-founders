@@ -1,0 +1,3 @@
+[submodule "panvc-sample-workflow"]
+	path = panvc-sample-workflow
+	url = https://github.com/algbio/panvc-sample-workflow

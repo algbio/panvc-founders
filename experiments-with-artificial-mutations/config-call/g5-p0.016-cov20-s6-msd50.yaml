@@ -1,0 +1,9 @@
+benchmark_dir: benchmark-call/g5-p0.016-cov20-s6-msd50
+chromosome_list:
+- e-coli-g5-m0.016-s6-msd50-precalc
+index_root: indices/e-coli-g5-m0.016-s6-msd50-precalc
+n_refs: 4
+output_root: call/g5-p0.016-cov20-s6-msd50
+reads_all_path: genreads/e-coli-g5-p0.016.fa-cov20_read_ALL_RENAMED.fq.gz
+reads_file_1: genreads/e-coli-g5-p0.016.fa-cov20_read1.fq.gz
+reads_file_2: genreads/e-coli-g5-p0.016.fa-cov20_read2.fq.gz

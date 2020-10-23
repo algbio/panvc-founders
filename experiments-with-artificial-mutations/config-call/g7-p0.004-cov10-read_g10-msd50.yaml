@@ -1,0 +1,9 @@
+benchmark_dir: benchmark-call/g7-p0.004-cov10-read_g10-msd50
+chromosome_list:
+- e-coli-g7-p0.004-msd50-precalc
+index_root: indices/e-coli-g7-p0.004-msd50-precalc
+n_refs: 64
+output_root: call/g7-p0.004-cov10-read_g10-msd50
+reads_all_path: genreads/e-coli-g10-p0.004.fa-cov10_read_ALL_RENAMED.fq.gz
+reads_file_1: genreads/e-coli-g10-p0.004.fa-cov10_read1.fq.gz
+reads_file_2: genreads/e-coli-g10-p0.004.fa-cov10_read2.fq.gz
