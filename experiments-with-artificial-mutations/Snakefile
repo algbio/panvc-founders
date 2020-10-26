@@ -25,7 +25,7 @@ exp_name_re = re.compile(r"""
 def exp_name_parts(exp_name):
 	"""Parse experiment parameters from its name."""
 	res = exp_name_re.match(exp_name)
-	assert res
+	assert res, ("'%s' did not match the regular expression." % exp_name)
 	return res.group("gen"), res.group("mrate"), res.group("cov"), res.group("msd"), res.group("seg"), res.group("rg10")
 
 
@@ -51,7 +51,7 @@ def output_files_predicted():
 	global config
 	workflows = config["workflow"]
 	variant_callers = config["variant_caller"]
-	exp_names = list_experiment_names(config["experiment_names"])
+	exp_names = list_experiment_names(config["experiment_list"])
 
 	def helper():
 		for exp_name in exp_names:
@@ -64,11 +64,11 @@ def output_files_predicted():
 	return [x for x in helper()]
 
 
-output_files_scores():
+def output_files_scores():
 	global config
 	workflows = config["workflow"]
 	variant_callers = config["variant_caller"]
-	exp_names = list_experiment_names(config["experiment_names"])
+	exp_names = list_experiment_names(config["experiment_list"])
 
 	def helper():
 		for exp_name in exp_names:
@@ -97,7 +97,7 @@ rule edit_distance:
 	message:			"Calculating edit distance"
 	conda:				"../experiment_env.yaml"
 	input:
-		predicted_seq	= "predicted-sequenes/{exp_name}/predicted.{workflow}.{vc}.txt"
+		predicted_seq	= "predicted-sequenes/{exp_name}/predicted.{workflow}.{vc}.txt",
 		hidden_truth	= truth_file_name("{exp_name}")
 	output:				"edlib-scores/{exp_name}.{workflow}.{vc}.txt"
 	shell:
