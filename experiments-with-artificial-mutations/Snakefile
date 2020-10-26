@@ -83,13 +83,13 @@ def output_files_scores():
 
 rule edit_distances:
 	input:	output_files_scores()
-	script:
+	run:
 		print("Done.")
 
 
 rule predicted_sequences:
 	input:	output_files_predicted()
-	script:
+	run:
 		print("Done.")
 
 
@@ -97,11 +97,11 @@ rule edit_distance:
 	message:			"Calculating edit distance"
 	conda:				"../experiment_env.yaml"
 	input:
-		predicted_seq	= "predicted-sequenes/{exp_name}/predicted.{workflow}.{vc}.txt",
+		predicted_seq	= "predicted-sequences/{exp_name}/predicted.{workflow}.{vc}.txt",
 		hidden_truth	= lambda wildcards: truth_file_name(wildcards.exp_name)
 	output:				"edlib-scores/{exp_name}.{workflow}.{vc}.txt"
 	shell:
-		"edlib-aligner {predicted_seq} {hidden_Truth} > {output} 2>&1"
+		"edlib-aligner {input.predicted_seq} {input.hidden_truth} > {output} 2>&1"
 
 
 rule gen_predicted_from_pg:
