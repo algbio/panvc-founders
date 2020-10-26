@@ -5,5 +5,5 @@ include "panvc-sample-workflow/Snakefile.install"
 
 rule conda_environment_experiments:
 	conda:					"experiment_env.yaml"
-	script:
+	run:
 		print("Done")
