@@ -100,11 +100,11 @@ To simplify running the experiment, we provide a helper script, [experiment\_hel
     * Download prepared indices needed to run the experiment as follows:
         1. Create a list of the compressed index URLs with `python3 experiment_helper.py --print-index-urls --experiment-list experiment-names.txt > index-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-urls.txt`
-        3. Extract the contents of the files. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
+        3. Extract the contents of the archives. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
     * Download A2M inputs and generate the indices as follows:
         1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
-        3. Extract the contents of the files to a subdirectory called *a2m*.
+        3. Extract the contents of the archives to a subdirectory called *a2m*.
         4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
  4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. (In addition to the separate read files, some parts of the workflow require all the reads in one file. The file is automatically generated as part of the workflow but we also provide the generated files.)
  5. Download [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) and extract. The plain text files should be automatically placed in a subdirectory called *sequences-truth*.
