@@ -112,7 +112,7 @@ To simplify running the experiment, we provide a helper script, [experiment\_hel
  7. Run the variant calling workflow. To this end, get a list of commands from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-variant-calling-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
  8. Generate the predicted sequences from the variants. As the process is rather I/O intensive, we recommend using one core with Snakemake: `python3 experiment_helper.py --print-predicted-sequence-generation-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 1 --conda-prefix /path/to/conda/environment' | bash -x - e`
  9. Compare the predicted sequences to the truth with Edlib: `python3 experiment_helper.py --print-sequence-comparison-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`
- 10. Run `summarize-edlib-scores.sh` to create a summary of the calculated scores in TSV format.
+ 10. Run `./summarize-edlib-scores.sh` to create a summary of the calculated scores in TSV format.
 
 The results are placed in subdirectories as listed in the following table.
 
