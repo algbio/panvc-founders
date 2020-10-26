@@ -25,7 +25,7 @@ exp_name_re = re.compile(r"""
 def exp_name_parts(exp_name):
 	"""Parse experiment parameters from its name."""
 	res = exp_name_re.match(exp_name)
-	assert res, ("'%s' did not match the regular expression." % exp_name)
+	assert res, f"'{exp_name}' did not match the regular expression."
 	return res.group("gen"), res.group("mrate"), res.group("cov"), res.group("msd"), res.group("seg"), res.group("rg10")
 
 
@@ -98,7 +98,7 @@ rule edit_distance:
 	conda:				"../experiment_env.yaml"
 	input:
 		predicted_seq	= "predicted-sequenes/{exp_name}/predicted.{workflow}.{vc}.txt",
-		hidden_truth	= truth_file_name("{exp_name}")
+		hidden_truth	= lambda wildcards: truth_file_name(wildcards.exp_name)
 	output:				"edlib-scores/{exp_name}.{workflow}.{vc}.txt"
 	shell:
 		"edlib-aligner {predicted_seq} {hidden_Truth} > {output} 2>&1"
@@ -108,11 +108,11 @@ rule gen_predicted_from_pg:
 	message:			"Generating predicted sequence"
 	conda:				"../panvc-sample-workflow/workflow/envs/panvc.yaml"
 	input:
-		ref_seq			= "e.coli.fa.gz",
+		ref_seq			= "e.coli.fa",
 		vcf				= "call/{exp_name}/ext_vc/pg_variants.{vc}.vcf"
 	output:				"predicted-sequences/{exp_name}/predicted.panvc.{vc}.txt"
 	params:
-		chrom			= chr_name("{exp_name}")
+		chrom			= lambda wildcards: chr_name(wildcards.exp_name)
 	shell:
 		"vcf_to_unaligned --reference={input.ref_seq} --variants={input.vcf} --output={output} -s 0 -p 0 -c {params.chrom}"
 
@@ -121,10 +121,10 @@ rule gen_predicted_from_baseline:
 	message:			"Generating predicted sequence"
 	conda:				"../panvc-sample-workflow/workflow/envs/panvc.yaml"
 	input:
-		ref_seq			= "e.coli.fa.gz",
+		ref_seq			= "e.coli.fa",
 		vcf				= "call/{exp_name}/baseline_vc/variants.{vc}.vcf"
-	output:				"predicted-sequences/{exp_name}/predicted.panvc.{vc}.txt"
+	output:				"predicted-sequences/{exp_name}/predicted.baseline.{vc}.txt"
 	params:
-		chrom			= chr_name("{exp_name}")
+		chrom			= lambda wildcards: chr_name(wildcards.exp_name)
 	shell:
 		"vcf_to_unaligned --reference={input.ref_seq} --variants={input.vcf} --output={output} -s 0 -p 0 -c {params.chrom}"
