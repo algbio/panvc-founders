@@ -90,7 +90,7 @@ The following archives contain indices generated with `Snakefile.index`.
 
 The experiment consists of running the workflow with 192 different inputs. For testing purposes, a subset of the inputs may be used. To run the experiment, please follow these steps.
 
-To simplify running the experiment, we provide a helper script, [experiment\_helper.py](experiments-with-artificial-mutations/experiment_helper.py). All its available options may be listed with `python3 experiment_helper.py --help`.
+To simplify running the experiment, the repository contains a helper script, [experiment\_helper.py](experiments-with-artificial-mutations/experiment_helper.py). All its available options may be listed with `python3 experiment_helper.py --help`.
 
  1. `cd experiments-with-artificial-mutations`
  2. The identifiers of the inputs are listed in [all-experiment-names.txt](experiments-with-artificial-mutations/all-experiment-names.txt). Decide with which inputs to run the experiment, copy the list with e.g. `cp -i all-experiment-names.txt experiment-names.txt` and possibly remove some of the lines in order to run the experiment with fewer inputs.
