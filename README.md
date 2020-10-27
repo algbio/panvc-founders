@@ -200,6 +200,28 @@ Individual sequence files have been listed [on a separate page](experiments-with
 
 ### Take-one-out experiment with human chromosome 22
 
+#### Running the experiment
+
+ 1. `cd take-one-out-experiment-with-human-chr-22`
+ 2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov50.tar`
+    * `tar xf cov10.tar`
+    * `tar xf cov20.tar`
+    * `tar xf cov50.tar`
+ 3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory under *indices*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-HG00513.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-HG00731.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA12273.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA18954.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA19238.tar.bz2`
+    * `tar xjf no-HG00513.tar.bz2`
+    * `tar xjf no-HG00731.tar.bz2`
+    * `tar xjf no-NA12273.tar.bz2`
+    * `tar xjf no-NA18954.tar.bz2`
+    * `tar xjf no-NA19238.tar.bz2`
+
 #### Reads used in the experiment
 
 The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
