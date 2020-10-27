@@ -56,15 +56,31 @@ Each experiment involves aligning different sets of reads to different indices. 
 
 ### Founder quality experiment
 
+#### Running the experiment
+
+ 1. `cd founder-quality`
+ 2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar`
+    * `tar xf cov10.tar`
+    * `tar xf cov20.tar`
+    * `tar xf cov50.tar`
+ 3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory, *index-founders* and *index-predicted*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2`
+    * `tar xjf index-founders.tar.bz2`
+    * `tar xjf index-predicted.tar.bz2
+
 #### Reads used in the experiment
 
 The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
 
-| File | Coverage |
-| ---- | -------- |
-| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x |
-| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x |
-| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x |
+| File                                                                                                    | Coverage |
+| ------------------------------------------------------------------------------------------------------- | -------- |
+| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x      |
+| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x      |
+| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x      |
 
 #### Indices for use with `Snakefile.call`
 
