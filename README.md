@@ -72,12 +72,12 @@ Each experiment involves aligning different sets of reads to different indices. 
     * `tar xjf index-founders.tar.bz2`
     * `tar xjf index-predicted.tar.bz2`
  4. Run the variant calling workflow with the following commands.
-    * `snakemake --configfile config-panvc-call/founders-10.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/founders-20.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/founders-50.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-10.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-20.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-50.yaml --snakefile /proj/tnorri/Checkout/git/panvc-cli/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/founders-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/predicted-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-panvc-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
 
 #### Reads used in the experiment
 
