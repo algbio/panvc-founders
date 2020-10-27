@@ -126,13 +126,12 @@ To simplify running the experiment, the repository contains a helper script, [ex
 
 The generated files are placed in subdirectories as listed in the following table.
 
-| Result                                                    | Directory                                                       |
-| --------------------------------------------------------- | --------------------------------------------------------------- |
-| Edit distances from the truth                             | edlib-scores                                                    |
-| Variants called with the PanVC workflow using GATK        | call/*experiment-identifier*/ext\_vc/pg\_variants.gatk.vcf      |
-| Variants called with the PanVC workflow using Samtools    | call/*experiment-identifier*/ext\_vc/pg\_variants.samtools.vcf  |
-| Variants called with the baseline workflow using GATK     | call/*experiment-identifier*/baseline\_vc/variants.gatk.vcf     |
-| Variants called with the baseline workflow using Samtools | call/*experiment-identifier*/baseline\_vc/variants.samtools.vcf |
+| Result                                     | Directory                                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------------------------- |
+| Edit distances from the truth              | edlib-scores                                                                          |
+| Predicted sequences                        | predicted-sequences/*experiment-identifier*/predicted.*workflow*.*variant-caller*.txt |
+| Variants called with the PanVC workflow    | call/*experiment-identifier*/ext\_vc/pg\_variants.*variant-caller*.vcf                |
+| Variants called with the baseline workflow | call/*experiment-identifier*/baseline\_vc/variants.*variant-caller*.vcf               |
 
 #### Reads used in the experiment
 
