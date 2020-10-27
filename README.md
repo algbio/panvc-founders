@@ -70,7 +70,7 @@ Each experiment involves aligning different sets of reads to different indices. 
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2`
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2`
     * `tar xjf index-founders.tar.bz2`
-    * `tar xjf index-predicted.tar.bz2
+    * `tar xjf index-predicted.tar.bz2`
 
 #### Reads used in the experiment
 
