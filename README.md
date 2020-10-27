@@ -39,7 +39,7 @@ Please note, however, that prebuilt binaries for some of the software are only a
 
 On a high level, the experiments are run as follows:
 
- 1. Decide which experiments to run and modify the configuration files in the subdirectory of the corresponding experiment.
+ 1. Decide which experiments to run and possibly modify the configuration files in the subdirectory of the corresponding experiment.
  2. Download and unarchive the reads provided with the experiments
  3. Do one of the following:
     * Download and unarchive the pre-generated indices provided with the experiments in question and call variants by running Snakemake
