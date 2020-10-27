@@ -4,7 +4,7 @@ max_read_len: 105
 ploidy: 1
 ploidy_file: 1
 sensibility: 5
-tempdir: /wrk/users/tnorri/tmp
+tempdir: /tmp
 variant_caller:
 - gatk
 - samtools
