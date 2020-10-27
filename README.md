@@ -107,19 +107,20 @@ To simplify running the experiment, we provide a helper script, [experiment\_hel
         3. Extract the contents of the archives to a subdirectory called *a2m*.
         4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`.
  4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. Please see the commands below. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. (In addition to the separate read files, some parts of the workflow require all the reads in one file. The file is automatically generated as part of the workflow but we also provide the generated files.)
-   * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10.tar`
-   * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20.tar`
-   * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10-renamed.tar`
-   * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20-renamed.tar`
-   * `tar xf genreads-cov10.tar`
-   * `tar xf genreads-cov20.tar`
-   * `tar xf genreads-cov10-renamed.tar`
-   * `tar xf genreads-cov20-renamed.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10-renamed.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20-renamed.tar`
+    * `tar xf genreads-cov10.tar`
+    * `tar xf genreads-cov20.tar`
+    * `tar xf genreads-cov10-renamed.tar`
+    * `tar xf genreads-cov20-renamed.tar`
  5. Download [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) and extract. The plain text files should be automatically placed in a subdirectory called *sequences-truth*.
-   * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz`
-   * `tar xzf sequences-truth.tar.gz`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz`
+    * `tar xzf sequences-truth.tar.gz`
  6. Download [e.coli.fa.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/e.coli.fa.gz) and extract. Some of our tools require the sequence part of the FASTA to not contain any newlines; we have modified the file accordingly.
-   * `gunzip e.coli.fa.gz`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/e.coli.fa.gz`
+    * `gunzip e.coli.fa.gz`
  7. Run the variant calling workflow. To this end, get a list of commands from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-variant-calling-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`.
  8. Generate the predicted sequences from the variants. As the process is rather I/O intensive, we recommend using one core with Snakemake: `python3 experiment_helper.py --print-predicted-sequence-generation-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 1 --conda-prefix ../conda-env' | bash -x -e`
  9. Compare the predicted sequences to the truth with Edlib: `python3 experiment_helper.py --print-sequence-comparison-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`
