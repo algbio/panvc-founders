@@ -86,8 +86,6 @@ The following archives contain indices generated with `Snakefile.index`.
 
 ### Experiments with artificial mutations
 
-See [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for sample scripts.
-
 #### Running the experiment
 
 The experiment consists of running the workflow with 192 different inputs. For testing purposes, a subset of the inputs may be used. To run the experiment, please follow these steps.
