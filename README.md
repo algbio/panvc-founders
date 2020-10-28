@@ -74,7 +74,7 @@ Each experiment involves aligning different sets of reads to different indices. 
  4. Download the [truthset variants](https://github.com/Illumina/PlatinumGenomes/) with e.g.`wget https://s3.eu-central-1.amazonaws.com/platinum-genomes/2017-1.0/hg38/small_variants/NA12877/NA12877.vcf.gz`
  5. Get the human chromosome 21 GRCh38 reference sequence. We used the following:
     * `wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
-    The provided Snakefile will extract the chromosome in question with the identifier *chr21* to a file called *chr21.fa*.
+    The provided Snakefile will extract the chromosome in question to a file called *chr21.fa* with the identifier *chr21*.
  6. Run the variant calling workflow with the following commands.
     * `snakemake --configfile config-panvc-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
     * `snakemake --configfile config-panvc-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
