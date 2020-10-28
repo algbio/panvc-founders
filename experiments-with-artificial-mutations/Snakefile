@@ -95,7 +95,7 @@ rule predicted_sequences:
 
 rule edit_distance:
 	message:			"Calculating edit distance"
-	conda:				"../experiment_env.yaml"
+	conda:				"../envs/edlib.yaml"
 	input:
 		predicted_seq	= "predicted-sequences/{exp_name}/predicted.{workflow}.{vc}.txt",
 		hidden_truth	= lambda wildcards: truth_file_name(wildcards.exp_name)
