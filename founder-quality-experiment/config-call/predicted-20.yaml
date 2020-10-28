@@ -9,9 +9,9 @@ n_refs: 100
 output_root: call/predicted-20
 ploidy: 2
 ploidy_file: GRCh38
-reads_all_path: /wrk/users/tnorri/founder-quality/reads/cov20/gen_read_ALL_RENAMED.fq.gz
-reads_file_1: /wrk/users/tnorri/founder-quality/reads/cov20/gen_read1.fq.gz
-reads_file_2: /wrk/users/tnorri/founder-quality/reads/cov20/gen_read2.fq.gz
+reads_all_path: reads/cov20/gen_read_ALL_RENAMED.fq.gz
+reads_file_1: reads/cov20/gen_read1.fq.gz
+reads_file_2: reads/cov20/gen_read2.fq.gz
 sensibility: 5
 variant_caller:
 - gatk
