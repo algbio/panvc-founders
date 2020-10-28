@@ -226,6 +226,23 @@ Individual sequence files have been listed [on a separate page](experiments-with
     * `tar xjf no-NA12273.tar.bz2`
     * `tar xjf no-NA18954.tar.bz2`
     * `tar xjf no-NA19238.tar.bz2`
+ 4. Run the variant calling workflow with the following commands.
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+
 
 #### Reads used in the experiment
 
