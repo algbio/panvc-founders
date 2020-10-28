@@ -58,7 +58,7 @@ Each experiment involves aligning different sets of reads to different indices. 
 
 #### Running the experiment
 
- 1. `cd founder-quality`
+ 1. `cd founder-quality-experiment`
  2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar`
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar`
