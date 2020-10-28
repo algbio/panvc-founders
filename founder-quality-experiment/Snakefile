@@ -1,5 +1,5 @@
 rule all:
-	input:		"hap.py/panvc-founders-cov20-samtools"
+	input:		"hap.py/panvc-founders-cov10-samtools"
 
 
 rule filter_chr21_from_truth:
@@ -42,22 +42,24 @@ rule add_contig_header:
 rule run_hap_py_baseline:
 	message:		"Running hap.py with baseline variants"
 	conda:			"../envs/happy.yaml"
+	threads:		workflow.cores
 	input:
 		reference	= "chr21.fa",
 		faidx		= "chr21.fa.fai",
 		truth_vcf	= "NA12877.chr21.vcf",
 		query_vcf	= "call/{index}-{cov}/baseline_vc/variants.{vc}.vcf"
 	output:			"hap.py/baseline-{index}-cov{cov}-{vc}"
-	shell:	"hap.py --threads {workflow.cores} -r {input.reference} -o hap.py/baseline-{wildcards.index}-cov{wildcards.cov}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
+	shell:	"hap.py --verbose --threads {workflow.cores} -r {input.reference} -o hap.py/baseline-{wildcards.index}-cov{wildcards.cov}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
 
 
 rule run_hap_py_panvc:
 	message:		"Running hap.py with PanVC variants"
 	conda:			"../envs/happy.yaml"
+	threads:		workflow.cores
 	input:
 		reference	= "chr21.fa",
 		faidx		= "chr21.fa.fai",
 		truth_vcf	= "NA12877.chr21.vcf",
 		query_vcf	= "call/{index}-{cov}/ext_vc/pg_variants.{vc}.fixed.vcf"
 	output:			"hap.py/panvc-{index}-cov{cov}-{vc}"
-	shell:	"hap.py --threads {workflow.cores} -r {input.reference} -o hap.py/panvc-{wildcards.index}-cov{wildcards.cov}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
+	shell:	"hap.py --verbose --threads {workflow.cores} -r {input.reference} -o hap.py/panvc-{wildcards.index}-cov{wildcards.cov}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
