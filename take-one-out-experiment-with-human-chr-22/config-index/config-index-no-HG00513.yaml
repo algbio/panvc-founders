@@ -1,0 +1,10 @@
+benchmark_dir: benchmark-index-no-HG00513
+index_root: indices/index-no-HG00513
+input_a2m:
+- !!python/tuple
+  - chr21
+  - a2m/no-HG00513.a2m
+max_edit_distance: 10
+max_memory_MB: 100000
+max_read_length: 105
+n_refs: 113
