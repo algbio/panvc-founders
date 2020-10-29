@@ -1,0 +1,21 @@
+benchmark_dir: benchmark-call/founders-10
+chromosome_list:
+- chr21
+index_root: indices/index-founders
+max_edit_distance: 10
+max_memory_MB: 100000
+max_read_len: 105
+n_refs: 28
+output_root: call/founders-10
+ploidy: 2
+ploidy_file: GRCh38
+reads_all_path: reads/cov10/gen_read_ALL_RENAMED.fq.gz
+reads_file_1: reads/cov10/gen_read1.fq.gz
+reads_file_2: reads/cov10/gen_read2.fq.gz
+sensibility: 5
+variant_caller:
+- gatk
+- samtools
+workflow:
+- pg
+- baseline

@@ -1,0 +1,21 @@
+benchmark_dir: benchmark-call/no-HG00731-cov20
+chromosome_list:
+- chr21
+index_root: indices/index-no-HG00731
+max_edit_distance: 10
+max_memory_MB: 100000
+max_read_len: 105
+n_refs: 113
+output_root: call/HG00731-cov20
+ploidy: 2
+ploidy_file: GRCh37
+reads_all_path: reads/cov20/HG00731/gen_read_ALL_RENAMED.fq.gz
+reads_file_1: reads/cov20/HG00731/gen_read1.fq.gz
+reads_file_2: reads/cov20/HG00731/gen_read2.fq.gz
+sensibility: 5
+variant_caller:
+- gatk
+- samtools
+workflow:
+- pg
+- baseline

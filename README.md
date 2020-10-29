@@ -23,23 +23,23 @@ Our software consists of the following components:
 
 ## Installing
 
-All necessary components for running the experiments from our provided inputs are installed by running Snakemake, which in turn invokes Conda. To install the components to a predefined location, please run the following commands. (By default, i.e. when `--conda-prefix` is not given, the Conda environment is placed in a hidden .snakemake directory in the working directory when Snakemake is run. This may be less convenient for running multiple experiments.)
+All necessary components for running the experiments from our provided inputs are installed by running Snakemake, which in turn invokes Conda. To install the components to a predefined location, e.g. in `conda-env` in the root of the cloned repository, please run the following commands. (By default, i.e. when `--conda-prefix` is not given, the Conda environment is placed in a hidden .snakemake directory in the working directory when Snakemake is run. This may be less convenient for running multiple experiments.)
 
 Please note, however, that prebuilt binaries for some of the software are only available for Linux on x86-64.
 
  1. Clone the repository with `git clone --recursive https://github.com/algbio/panvc-founders.git`
  2. `cd panvc-founders`
  3. Prepare the Conda environments with the following commands:
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment`
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment_gatk`
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix /path/to/conda/environment conda_environment_experiments`
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment`
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment_gatk`
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment_experiments`
 
 
 ## Running the experiments
 
 On a high level, the experiments are run as follows:
 
- 1. Decide which experiments to run and modify the configuration files in the subdirectory of the corresponding experiment.
+ 1. Decide which experiments to run and possibly modify the configuration files in the subdirectory of the corresponding experiment.
  2. Download and unarchive the reads provided with the experiments
  3. Do one of the following:
     * Download and unarchive the pre-generated indices provided with the experiments in question and call variants by running Snakemake
@@ -56,15 +56,43 @@ Each experiment involves aligning different sets of reads to different indices. 
 
 ### Founder quality experiment
 
+#### Running the experiment
+
+ 1. `cd founder-quality-experiment`
+ 2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar`
+    * `tar xf cov10.tar`
+    * `tar xf cov20.tar`
+    * `tar xf cov50.tar`
+ 3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory, *index-founders* and *index-predicted*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2`
+    * `tar xjf index-founders.tar.bz2`
+    * `tar xjf index-predicted.tar.bz2`
+ 4. Download the [truthset variants](https://github.com/Illumina/PlatinumGenomes/) with e.g.`wget https://s3.eu-central-1.amazonaws.com/platinum-genomes/2017-1.0/hg38/small_variants/NA12877/NA12877.vcf.gz`
+ 5. Get the human chromosome 21 GRCh38 reference sequence. We used the following:
+    * `wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
+    The provided Snakefile will extract the chromosome in question to a file called *chr21.fa* with the identifier *chr21*.
+ 6. Run the variant calling workflow with the following commands.
+    * `snakemake --configfile config-common-call.yaml config-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/founders-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+  7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
+
 #### Reads used in the experiment
 
 The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
 
-| File | Coverage |
-| ---- | -------- |
-| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x |
-| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x |
-| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x |
+| File                                                                                                    | Coverage |
+| ------------------------------------------------------------------------------------------------------- | -------- |
+| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x      |
+| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x      |
+| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x      |
 
 #### Indices for use with `Snakefile.call`
 
@@ -86,13 +114,11 @@ The following archives contain indices generated with `Snakefile.index`.
 
 ### Experiments with artificial mutations
 
-See [experiments-with-artificial-mutations](experiments-with-artificial-mutations) for sample scripts.
-
 #### Running the experiment
 
 The experiment consists of running the workflow with 192 different inputs. For testing purposes, a subset of the inputs may be used. To run the experiment, please follow these steps.
 
-To simplify running the experiment, we provide a helper script, [experiment\_helper.py](experiments-with-artificial-mutations/experiment_helper.py). All its available options may be listed with `python3 experiment_helper.py --help`.
+To simplify running the experiment, the repository contains a helper script, [experiment\_helper.py](experiments-with-artificial-mutations/experiment_helper.py). All its available options may be listed with `python3 experiment_helper.py --help`.
 
  1. `cd experiments-with-artificial-mutations`
  2. The identifiers of the inputs are listed in [all-experiment-names.txt](experiments-with-artificial-mutations/all-experiment-names.txt). Decide with which inputs to run the experiment, copy the list with e.g. `cp -i all-experiment-names.txt experiment-names.txt` and possibly remove some of the lines in order to run the experiment with fewer inputs.
@@ -105,22 +131,35 @@ To simplify running the experiment, we provide a helper script, [experiment\_hel
         1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
         3. Extract the contents of the archives to a subdirectory called *a2m*.
-        4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
- 4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. (In addition to the separate read files, some parts of the workflow require all the reads in one file. The file is automatically generated as part of the workflow but we also provide the generated files.)
+        4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`.
+ 4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. Please see the commands below. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. (In addition to the separate read files, some parts of the workflow require all the reads in one file. The file is automatically generated as part of the workflow but we also provide the generated files.)
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10-renamed.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20-renamed.tar`
+    * `tar xf genreads-cov10.tar`
+    * `tar xf genreads-cov20.tar`
+    * `tar xf genreads-cov10-renamed.tar`
+    * `tar xf genreads-cov20-renamed.tar`
  5. Download [sequences-truth.tar.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz) and extract. The plain text files should be automatically placed in a subdirectory called *sequences-truth*.
- 6. Run the variant calling workflow. To this end, get a list of commands from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-variant-calling-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`.
- 7. Generate the predicted sequences from the variants. As the process is rather I/O intensive, we recommend using one core with Snakemake: `python3 experiment_helper.py --print-predicted-sequence-generation-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 1 --conda-prefix /path/to/conda/environment' | bash -x - e`
- 8. Compare the predicted sequences to the truth with Edlib: `python3 experiment_helper.py --print-sequence-comparison-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix /path/to/conda/environment --resources mem_mb=16000' | bash -x -e`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/sequences-truth.tar.gz`
+    * `tar xzf sequences-truth.tar.gz`
+ 6. Download [e.coli.fa.gz](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/e.coli.fa.gz) and extract. Some of our tools require the sequence part of the FASTA to not contain any newlines; we have modified the file accordingly.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/e.coli.fa.gz`
+    * `gunzip e.coli.fa.gz`
+ 7. Run the variant calling workflow. To this end, get a list of commands from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-variant-calling-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`.
+ 8. Generate the predicted sequences from the variants. As the process is rather I/O intensive, we recommend using one core with Snakemake: `python3 experiment_helper.py --print-predicted-sequence-generation-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 1 --conda-prefix ../conda-env' | bash -x -e`
+ 9. Compare the predicted sequences to the truth with Edlib: `python3 experiment_helper.py --print-sequence-comparison-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`
+ 10. Run `./summarize-edlib-scores.sh` to create a summary of the calculated scores in TSV format.
 
-The results are placed in subdirectories as listed in the following table.
+The generated files are placed in subdirectories as listed in the following table.
 
-| Result                                                    | Directory                                                       |
-| --------------------------------------------------------- | --------------------------------------------------------------- |
-| Edit distances from the truth                             | edlib-scores                                                    |
-| Variants called with the PanVC workflow using GATK        | call/*experiment-identifier*/ext\_vc/pg\_variants.gatk.vcf      |
-| Variants called with the PanVC workflow using Samtools    | call/*experiment-identifier*/ext\_vc/pg\_variants.samtools.vcf  |
-| Variants called with the baseline workflow using GATK     | call/*experiment-identifier*/baseline\_vc/variants.gatk.vcf     |
-| Variants called with the baseline workflow using Samtools | call/*experiment-identifier*/baseline\_vc/variants.samtools.vcf |
+| Result                                     | Directory                                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------------------------- |
+| Edit distances from the truth              | edlib-scores                                                                          |
+| Predicted sequences                        | predicted-sequences/*experiment-identifier*/predicted.*workflow*.*variant-caller*.txt |
+| Variants called with the PanVC workflow    | call/*experiment-identifier*/ext\_vc/pg\_variants.*variant-caller*.vcf                |
+| Variants called with the baseline workflow | call/*experiment-identifier*/baseline\_vc/variants.*variant-caller*.vcf               |
 
 #### Reads used in the experiment
 
@@ -165,6 +204,48 @@ Individual sequence files have been listed [on a separate page](experiments-with
 ---
 
 ### Take-one-out experiment with human chromosome 22
+
+#### Running the experiment
+
+ 1. `cd take-one-out-experiment-with-human-chr-22`
+ 2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov10.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov20.tar`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/reads/cov50.tar`
+    * `tar xf cov10.tar`
+    * `tar xf cov20.tar`
+    * `tar xf cov50.tar`
+ 3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory under *indices*.
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-HG00513.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-HG00731.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA12273.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA18954.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr22/panvc-indices/no-NA19238.tar.bz2`
+    * `tar xjf no-HG00513.tar.bz2`
+    * `tar xjf no-HG00731.tar.bz2`
+    * `tar xjf no-NA12273.tar.bz2`
+    * `tar xjf no-NA18954.tar.bz2`
+    * `tar xjf no-NA19238.tar.bz2`
+ 4. Download the [hs37d5 reference](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz) and extract. The provided Snakefile will extract the chromosome in question to a file called chr21.fa with the identifier chr21.
+ 5. Download the [reference dataset](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz) and extract. The provided Snakefile will extract the tested samples.
+ 6. Run the variant calling workflow with the following commands.
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+ 7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
+
 
 #### Reads used in the experiment
 

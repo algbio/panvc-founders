@@ -1,0 +1,4 @@
+max_memory_MB: 100000
+tempdir: /tmp
+max_edit_distance: 10
+max_read_length: 105

@@ -1,0 +1,5 @@
+channels:
+- tsnorri
+- conda-forge
+dependencies:
+- libbio=0.1=0ff7396a28a8dee64ac01d40bf622f73154ab5a8

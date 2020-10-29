@@ -1,0 +1,7 @@
+benchmark_dir: benchmark-index-predicted
+index_root: indices/index-predicted
+input_a2m:
+- !!python/tuple
+  - chr21
+  - predicted-sequences.a2m
+n_refs: 100
