@@ -64,7 +64,7 @@ def output_files_predicted():
 	return [x for x in helper()]
 
 
-output_files_scores():
+def output_files_scores():
 	global config
 	workflows = config["workflow"]
 	variant_callers = config["variant_caller"]
