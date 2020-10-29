@@ -13,7 +13,7 @@ from Bio import SeqIO
 # Output: The specified sequence.
 
 
-def extract_fasta(fh, dst, seq_id, reverse_complement, remove_gaps, log):
+def extract_fasta(fh, dst, seq_id, new_id, reverse_complement, remove_gaps, log):
 	if log:
 		print("Reading FASTA…", file = sys.stderr)
 	seq = None
@@ -21,7 +21,7 @@ def extract_fasta(fh, dst, seq_id, reverse_complement, remove_gaps, log):
 		if log:
 			print("Found record: %s" % rec.id, file = sys.stderr)
 		if rec.id == seq_id:
-			print(">%s" % rec.id, file = dst)
+			print(">%s" % new_id, file = dst)
 			if reverse_complement:
 				table = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A', '-': '-', 'N': 'N'}
 				for i in reversed(range(len(rec.seq))):
