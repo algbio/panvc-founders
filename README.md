@@ -76,13 +76,13 @@ Each experiment involves aligning different sets of reads to different indices. 
     * `wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
     The provided Snakefile will extract the chromosome in question to a file called *chr21.fa* with the identifier *chr21*.
  6. Run the variant calling workflow with the following commands.
-    * `snakemake --configfile config-panvc-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/founders-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-panvc-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-  7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`
+    * `snakemake --configfile config-common-call.yaml config-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/founders-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+  7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
 
 #### Reads used in the experiment
 
@@ -226,6 +226,26 @@ Individual sequence files have been listed [on a separate page](experiments-with
     * `tar xjf no-NA12273.tar.bz2`
     * `tar xjf no-NA18954.tar.bz2`
     * `tar xjf no-NA19238.tar.bz2`
+ 4. Download the [hs37d5 reference](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz) and extract. The provided Snakefile will extract the chromosome in question to a file called chr21.fa with the identifier chr21.
+ 5. Download the [reference dataset](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz) and extract. The provided Snakefile will extract the tested samples.
+ 6. Run the variant calling workflow with the following commands.
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00513-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/HG00731-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA12273-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+    * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
+ 7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
+
 
 #### Reads used in the experiment
 
