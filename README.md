@@ -83,6 +83,7 @@ Each experiment involves aligning different sets of reads to different indices. 
     * `snakemake --configfile config-common-call.yaml config-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
     * `snakemake --configfile config-common-call.yaml config-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
   7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
+  8. Run `python3 summarize.py` to create a summary of hap.py’s results.
 
 #### Reads used in the experiment
 
