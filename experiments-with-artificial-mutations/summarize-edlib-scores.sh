@@ -2,7 +2,7 @@
 
 set -e
 
-printf "Experiment\tWorkflow\tMutation rate\tCoverage\tMinimum subgraph distance\tGeneration\tRead generation\tRead set\tEdit distance\n"
+printf "Experiment\tWorkflow\tVariant caller\tMutation rate\tCoverage\tMinimum subgraph distance\tGeneration\tRead generation\tRead set\tEdit distance\n"
 
 for msd in 25 50 100
 do
