@@ -127,7 +127,7 @@ To simplify running the experiment, the repository contains a helper script, [ex
     * Download prepared indices needed to run the experiment as follows:
         1. Create a list of the compressed index URLs with `python3 experiment_helper.py --print-index-urls --experiment-list experiment-names.txt > index-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-urls.txt`
-        3. Extract the contents of the archives with e.g. `ls *.tar.bz2 | while read x; do tar xjf "$x"; done`. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
+        3. Extract the contents of the archives with e.g. `ls *.tar.bz2 | while read x; do pbzip2 -d -c "$x" | tar x; done`. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
     * Download A2M inputs and generate the indices as follows:
         1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
