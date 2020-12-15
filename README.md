@@ -217,16 +217,16 @@ Individual sequence files have been listed [on a separate page](experiments-with
     * `tar xf cov20.tar`
     * `tar xf cov50.tar`
  3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory under *indices*.
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-HG00513.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-HG00731.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA12273.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA18954.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA19238.tar.bz2`
-    * `tar xjf no-HG00513.tar.bz2`
-    * `tar xjf no-HG00731.tar.bz2`
-    * `tar xjf no-NA12273.tar.bz2`
-    * `tar xjf no-NA18954.tar.bz2`
-    * `tar xjf no-NA19238.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-HG00513.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-HG00731.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA12273.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA18954.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA19238.tar.bz2`
+    * `tar xjf index-no-HG00513.tar.bz2`
+    * `tar xjf index-no-HG00731.tar.bz2`
+    * `tar xjf index-no-NA12273.tar.bz2`
+    * `tar xjf index-no-NA18954.tar.bz2`
+    * `tar xjf index-no-NA19238.tar.bz2`
  4. Download the [hs37d5 reference](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz) and extract. The provided Snakefile will extract the chromosome in question to a file called chr21.fa with the identifier chr21.
  5. Download the [reference dataset](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz) and extract. The provided Snakefile will extract the tested samples.
  6. Run the variant calling workflow with the following commands.
