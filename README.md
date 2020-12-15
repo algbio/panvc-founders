@@ -73,7 +73,7 @@ Each experiment involves aligning different sets of reads to different indices. 
     * `tar xjf index-predicted.tar.bz2`
  4. Download the [truthset variants](https://github.com/Illumina/PlatinumGenomes/) with e.g.`wget https://s3.eu-central-1.amazonaws.com/platinum-genomes/2017-1.0/hg38/small_variants/NA12877/NA12877.vcf.gz`
  5. Get the human chromosome 21 GRCh38 reference sequence. We used the following:
-    * `wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
+    * `wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
     The provided Snakefile will extract the chromosome in question to a file called *chr21.fa* with the identifier *chr21*.
  6. Run the variant calling workflow with the following commands.
     * `snakemake --configfile config-common-call.yaml config-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
@@ -127,7 +127,7 @@ To simplify running the experiment, the repository contains a helper script, [ex
     * Download prepared indices needed to run the experiment as follows:
         1. Create a list of the compressed index URLs with `python3 experiment_helper.py --print-index-urls --experiment-list experiment-names.txt > index-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-urls.txt`
-        3. Extract the contents of the archives. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
+        3. Extract the contents of the archives with e.g. `ls *.tar.bz2 | while read x; do pbzip2 -d -c "$x" | tar x; done`. The indices should be automatically placed in a subdirectory called *indices*. The downloaded .tar.gz files are not needed after this step.
     * Download A2M inputs and generate the indices as follows:
         1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
