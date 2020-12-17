@@ -132,7 +132,7 @@ To simplify running the experiment, the repository contains a helper script, [ex
         1. Create a list of the corresponding input files with `python3 experiment_helper.py --print-index-input-urls --experiment-list experiment-names.txt > index-input-urls.txt`
         2. Download the files with e.g. `wget --content-disposition --trust-server-names -i index-input-urls.txt`
         3. Extract the contents of the archives to a subdirectory called *a2m*.
-        4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`.
+        4. Get a list of commands to generate the indices from experiment\_helper.py. These may be piped directly to the shell with e.g. `python3 experiment_helper.py --print-indexing-commands --experiment-list experiment-names.txt --snakemake-arguments '--cores 32 --conda-prefix ../conda-env --resources mem_mb=16000' | bash -x -e`. Alternatively, since some of the steps of the workflow have not been parallelised, the commands may be written to a file and executed with e.g. [GNU Parallel](https://www.gnu.org/software/parallel/): `python3 experiment_helper.py ... > call-commands.txt; parallel -j16 < call-commands.txt`.
  4. Download [the reads used in the experiment](#reads-used-in-the-experiment-1) and extract. Please see the commands below. The compressed FASTQ files should be automatically placed in a subdirectory called *genreads*. (In addition to the separate read files, some parts of the workflow require all the reads in one file. The file is automatically generated as part of the workflow but we also provide the generated files.)
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov10.tar`
     * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/reads/genreads-cov20.tar`
@@ -217,16 +217,16 @@ Individual sequence files have been listed [on a separate page](experiments-with
     * `tar xf cov20.tar`
     * `tar xf cov50.tar`
  3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory under *indices*.
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-HG00513.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-HG00731.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA12273.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA18954.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/no-NA19238.tar.bz2`
-    * `tar xjf no-HG00513.tar.bz2`
-    * `tar xjf no-HG00731.tar.bz2`
-    * `tar xjf no-NA12273.tar.bz2`
-    * `tar xjf no-NA18954.tar.bz2`
-    * `tar xjf no-NA19238.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-HG00513.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-HG00731.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA12273.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA18954.tar.bz2`
+    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/take-one-out-experiment-with-human-chr21/panvc-indices/index-no-NA19238.tar.bz2`
+    * `tar xjf index-no-HG00513.tar.bz2`
+    * `tar xjf index-no-HG00731.tar.bz2`
+    * `tar xjf index-no-NA12273.tar.bz2`
+    * `tar xjf index-no-NA18954.tar.bz2`
+    * `tar xjf index-no-NA19238.tar.bz2`
  4. Download the [hs37d5 reference](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz) and extract. The provided Snakefile will extract the chromosome in question to a file called chr21.fa with the identifier chr21.
  5. Download the [reference dataset](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz) and extract. The provided Snakefile will extract the tested samples.
  6. Run the variant calling workflow with the following commands.
@@ -246,6 +246,7 @@ Individual sequence files have been listed [on a separate page](experiments-with
     * `snakemake --configfile config-common-call.yaml config-call/NA18954-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
     * `snakemake --configfile config-common-call.yaml config-call/NA19238-cov50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
  7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
+ 8. Run `python3 summarize.py > summary.csv` to create a summary from the results.
 
 
 #### Reads used in the experiment
