@@ -1,6 +1,6 @@
 tempdir: /tmp
 max_memory_MB: 100000
-n_refs: 113
+n_refs: 10
 chromosome_list:
 - chr21
 ploidy: 2
