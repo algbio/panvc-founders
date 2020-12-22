@@ -294,9 +294,9 @@ The following archives contain indices generated with `Snakefile.index`.
  3. Download the reads. Please see the commands below.
      * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/reads/ERR1025645_sample05_1.fq.gz`
      * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/scalability-experiment/reads/ERR1025645_sample05_2.fq.gz`
- 4. Run Snakemake to generate the index for PanVC with e.g. `snakemake --configfile config-index.yaml --snakefile ../panvc-sample-workflow/Snakefile.index --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=400000`
- 5. Run Snakemake to align the reads with PanVC with e.g. `snakemake --configfile config-ERR1025645-pg.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=400000 -- call-ERR1025645-pg/ext_vc/sorted-alns2.samtools.bam`
- 6. Run Snakemake to generate an index and align the reads with baseline with e.g. `snakemake --configfile config-ERR1025645-baseline.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=400000 -- call-ERR1025645-baseline/baseline_vc/sorted-alns2.samtools.bam`
+ 4. Run Snakemake to generate the index for PanVC with e.g. `snakemake --configfile config-index.yaml --snakefile ../panvc-sample-workflow/Snakefile.index --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=500000`
+ 5. Run Snakemake to align the reads with PanVC with e.g. `snakemake --configfile config-ERR1025645-pg.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=500000 -- call-ERR1025645-pg/ext_vc/sorted-alns2.samtools.bam`
+ 6. Run Snakemake to generate an index and align the reads with baseline with e.g. `snakemake --configfile config-ERR1025645-baseline.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=500000 -- call-ERR1025645-baseline/baseline_vc/sorted-alns2.samtools.bam`
 
 The alignments for PanVC and baseline will be placed in *call-ERR1025645-pg/ext_vc/sorted-alns2.samtools.bam* and *call-ERR1025645-baseline/baseline_vc/sorted-alns2.samtools.bam* respectively. The benchmarks will be located in the following directories:
 
