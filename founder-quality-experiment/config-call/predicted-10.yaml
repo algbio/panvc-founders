@@ -1,5 +1,5 @@
 benchmark_dir: benchmark-call/predicted-10
-index_root: indices/index-predicted
+index_root: index-predicted
 n_refs: 100
 output_root: call/predicted-10
 reads_all_path: reads/cov10/gen_read_ALL_RENAMED.fq.gz

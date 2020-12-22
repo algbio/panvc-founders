@@ -1,5 +1,5 @@
 benchmark_dir: benchmark-call/founders-50
-index_root: indices/index-founders
+index_root: index-founders
 n_refs: 28
 output_root: call/founders-50
 reads_all_path: reads/cov50/gen_read_ALL_RENAMED.fq.gz

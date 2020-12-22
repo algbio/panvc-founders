@@ -1,5 +1,5 @@
 benchmark_dir: benchmark-call/predicted-50
-index_root: indices/index-predicted
+index_root: index-predicted
 n_refs: 100
 output_root: call/predicted-50
 reads_all_path: reads/cov50/gen_read_ALL_RENAMED.fq.gz

@@ -44,7 +44,10 @@ def chr_name(exp_name):
 def truth_file_name(exp_name):
 	"""Determine the name of the file that contains the actual sequence."""
 	gen, mrate, cov, msd, seg, rg10 = exp_name_parts(exp_name)
-	return f"sequences-truth/e-coli-g{gen}-p{mrate}-sample0.txt"
+	if rg10 is not None:
+		return f"sequences-truth/e-coli-g10-p{mrate}-sample0.txt"
+	else:
+		return f"sequences-truth/e-coli-g{gen}-p{mrate}-sample0.txt"
 
 
 def output_files_predicted():

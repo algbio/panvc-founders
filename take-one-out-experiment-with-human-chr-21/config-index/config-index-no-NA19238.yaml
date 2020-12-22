@@ -4,7 +4,3 @@ input_a2m:
 - !!python/tuple
   - chr21
   - a2m/no-NA19238.a2m
-max_edit_distance: 10
-max_memory_MB: 100000
-max_read_length: 105
-n_refs: 113
