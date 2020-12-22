@@ -300,10 +300,10 @@ The following archives contain indices generated with `Snakefile.index`.
 
 The alignments for PanVC and baseline will be placed in *call-ERR1025645-pg/ext_vc/sorted-alns2.samtools.bam* and *call-ERR1025645-baseline/baseline_vc/sorted-alns2.samtools.bam* respectively. The benchmarks will be located in the following directories:
 
-| Path                             | Description                                |
-| -------------------------------- | ------------------------------------------ |
-| *benchmark-index-combined-msd30* | PanVC’s indexing steps                     |
-| *benchmark-ERR1025645-pg*        | PanVC’s read mapping steps                 |
-| *benchmark-ERR1025645-baseline*  | Baseline’s indexing and read mapping steps |
+| Path                           | Description                                |
+| ------------------------------ | ------------------------------------------ |
+| benchmark-index-combined-msd30 | PanVC’s indexing steps                     |
+| benchmark-ERR1025645-pg        | PanVC’s read mapping steps                 |
+| benchmark-ERR1025645-baseline  | Baseline’s indexing and read mapping steps |
 
 To collect the benchmarks from one directory to a single file, *summarize-benchmark.sh* may be used, e.g. `summarize-benchmark.sh benchmark-index-combined-msd30`. The script will prepend two columns to Snakemake’s benchmarking output: The first will contain the name of the step in the workflow and the value of the second will be “panvc” in the case of PanVC-specific steps. When running the baseline workflow, a step called “bwa_index_ref” will generate the index. In the case of PanVC, the same step is part of the read alignment and variant calling workflow because the index for BWA is generated from the ad hoc reference.
