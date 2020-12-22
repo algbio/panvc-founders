@@ -1,0 +1,77 @@
+benchmark_dir: benchmark-index-combined-msd30
+index_root: index-combined-msd30
+input_a2m:
+- !!python/tuple
+  - chr1
+  - a2m/chr1.a2m
+- !!python/tuple
+  - chr2
+  - a2m/chr2.a2m
+- !!python/tuple
+  - chr3
+  - a2m/chr3.a2m
+- !!python/tuple
+  - chr4
+  - a2m/chr4.a2m
+- !!python/tuple
+  - chr5
+  - a2m/chr5.a2m
+- !!python/tuple
+  - chr6
+  - a2m/chr6.a2m
+- !!python/tuple
+  - chr7
+  - a2m/chr7.a2m
+- !!python/tuple
+  - chr8
+  - a2m/chr8.a2m
+- !!python/tuple
+  - chr9
+  - a2m/chr9.a2m
+- !!python/tuple
+  - chr10
+  - a2m/chr10.a2m
+- !!python/tuple
+  - chr11
+  - a2m/chr11.a2m
+- !!python/tuple
+  - chr12
+  - a2m/chr12.a2m
+- !!python/tuple
+  - chr13
+  - a2m/chr13.a2m
+- !!python/tuple
+  - chr14
+  - a2m/chr14.a2m
+- !!python/tuple
+  - chr15
+  - a2m/chr15.a2m
+- !!python/tuple
+  - chr16
+  - a2m/chr16.a2m
+- !!python/tuple
+  - chr17
+  - a2m/chr17.a2m
+- !!python/tuple
+  - chr18
+  - a2m/chr18.a2m
+- !!python/tuple
+  - chr19
+  - a2m/chr19.a2m
+- !!python/tuple
+  - chr20
+  - a2m/chr20.a2m
+- !!python/tuple
+  - chr21
+  - a2m/chr21.a2m
+- !!python/tuple
+  - chr22
+  - a2m/chr22.a2m
+- !!python/tuple
+  - chrX
+  - a2m/chrX.a2m
+max_edit_distance: 10
+max_memory_MB: 400000
+max_read_length: 104
+n_refs: 65
+tempdir: /tmp

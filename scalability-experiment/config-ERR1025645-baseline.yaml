@@ -1,0 +1,43 @@
+benchmark_dir: benchmark-ERR1025645-baseline
+chromosome_list:
+- chr1
+- chr2
+- chr3
+- chr4
+- chr5
+- chr6
+- chr7
+- chr8
+- chr9
+- chr10
+- chr11
+- chr12
+- chr13
+- chr14
+- chr15
+- chr16
+- chr17
+- chr18
+- chr19
+- chr20
+- chr21
+- chr22
+- chrX
+index_root: index-combined-msd30
+max_edit_distance: 10
+max_memory_MB: 400000
+max_read_len: 104
+n_refs: 65
+output_root: call-ERR1025645-baseline
+ploidy: 2
+ploidy_file: GRCh37
+reads_all_path: ERR1025645_sample05__ALL_RENAMED.fq.gz
+reads_file_1: ERR1025645_sample05_1.fq.gz
+reads_file_2: ERR1025645_sample05_2.fq.gz
+sensibility: 5
+tempdir: /tmp
+variant_caller:
+- gatk
+- samtools
+workflow:
+- baseline
