@@ -29,10 +29,8 @@ Please note, however, that prebuilt binaries for some of the software are only a
 
  1. Clone the repository with `git clone --recursive https://github.com/algbio/panvc-founders.git`
  2. `cd panvc-founders`
- 3. Prepare the Conda environments with the following commands:
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment`
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment_gatk`
-    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment_experiments`
+ 3. Prepare the Conda environments with the following command:
+    * `snakemake --cores 1 --printshellcmds --use-conda --conda-prefix ./conda-env conda_environment conda_environment_gatk conda_environment_edlib conda_environment_happy conda_environment_vcfcat`
 
 
 ## Running the experiments
