@@ -1,0 +1,7 @@
+rule all:
+	conda:			"../panvc-sample-workflow/workflow/envs/panvc.yaml"	
+	shell:
+		"""
+		mkdir -p predicted
+		./predicted-sequences.sh
+		"""
