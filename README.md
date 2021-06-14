@@ -145,6 +145,12 @@ Individual sequence files have been listed [on a separate page](experiments-with
 
 ---
 
+### Experiments with natural E.coli reads
+
+Please see [README.md](e-coli/README.md) under [e-coli](e-coli).
+
+---
+
 ### Take-one-out experiment with human chromosome 21
 
 #### Running the experiment
