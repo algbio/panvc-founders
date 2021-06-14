@@ -1,0 +1,5 @@
+benchmark_dir: benchmark-call/SRR7271452-subset20
+output_root: call/SRR7271452-subset20
+reads_all_path: reads/SRR7271452.all.fq.gz
+reads_file_1: reads/SRR7271452_1.fastq.gz
+reads_file_2: reads/SRR7271452_2.fastq.gz

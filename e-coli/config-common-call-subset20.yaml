@@ -1,0 +1,17 @@
+max_edit_distance: 10
+max_memory_MB: 16000
+max_read_len: 255
+ploidy: 1
+ploidy_file: 1
+sensibility: 5
+tempdir: /home/wrk/gsa/tnorri/panvc-experiments/panvc-founders-5/e-coli-founders-2/temp
+chromosome_list:
+- e-coli-subset20
+index_root: indices/e-coli-subset20
+n_refs: 20
+variant_caller:
+- gatk
+- samtools
+workflow:
+- pg
+bwa_threads: 4

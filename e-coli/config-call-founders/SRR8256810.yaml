@@ -1,0 +1,5 @@
+benchmark_dir: benchmark-call/SRR8256810-msd5
+output_root: call/SRR8256810-msd5
+reads_all_path: reads/SRR8256810.all.fq.gz
+reads_file_1: reads/SRR8256810_1.fastq.gz
+reads_file_2: reads/SRR8256810_2.fastq.gz
