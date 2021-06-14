@@ -54,65 +54,6 @@ Each experiment involves aligning different sets of reads to different indices. 
 
 ## Experiment data
 
-### Founder quality experiment
-
-#### Running the experiment
-
- 1. `cd founder-quality-experiment`
- 2. Download (some of) the reads used in the experiment and extract. Please see the commands below. The reads should be automatically placed in a subdirectory called *reads*.
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar`
-    * `tar xf cov10.tar`
-    * `tar xf cov20.tar`
-    * `tar xf cov50.tar`
- 3. Download (some of) the indices used in the experiment and extract. Please see the commands below. Each index should be automatically placed in its own subdirectory, *index-founders* and *index-predicted*.
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2`
-    * `wget https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2`
-    * `tar xjf index-founders.tar.bz2`
-    * `tar xjf index-predicted.tar.bz2`
- 4. Download the [truthset variants](https://github.com/Illumina/PlatinumGenomes/) with e.g.`wget https://s3.eu-central-1.amazonaws.com/platinum-genomes/2017-1.0/hg38/small_variants/NA12877/NA12877.vcf.gz`
- 5. Get the human chromosome 21 GRCh38 reference sequence. We used the following:
-    * `wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa`
-    The provided Snakefile will extract the chromosome in question to a file called *chr21.fa* with the identifier *chr21*.
- 6. Run the variant calling workflow with the following commands.
-    * `snakemake --configfile config-common-call.yaml config-call/founders-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-common-call.yaml config-call/founders-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-common-call.yaml config-call/founders-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-common-call.yaml config-call/predicted-10.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-common-call.yaml config-call/predicted-20.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-    * `snakemake --configfile config-common-call.yaml config-call/predicted-50.yaml --snakefile ../panvc-sample-workflow/Snakefile.call --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env --resources mem_mb=100000`
-  7. Run Snakemake to compare the results to the truthset variants with e.g. `snakemake --cores 32 --printshellcmds --use-conda --conda-prefix ../conda-env`. The comparison results will be placed to a subdirectory called *hap.py*.
-  8. Run `python3 summarize.py` to create a summary of hap.py’s results.
-
-#### Reads used in the experiment
-
-The following archives contain the reads used in the experiment in gzip-compressed FASTQ format. (Hence the archives themselves have not been re-compressed.)
-
-| File                                                                                                    | Coverage |
-| ------------------------------------------------------------------------------------------------------- | -------- |
-| [cov10.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov10.tar) | 10x      |
-| [cov20.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov20.tar) | 20x      |
-| [cov50.tar](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/reads/cov50.tar) | 50x      |
-
-#### Indices for use with `Snakefile.call`
-
-The following archives contain indices generated with `Snakefile.index`.
-
-| Index | Index file |
-| ----- | ---------- |
-| Index generated with founder sequences | [index-founders.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-founders.tar.bz2) |
-| Index generated with all predicted sequences | [index-predicted.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/indices/index-predicted.tar.bz2) |
-
-#### Sequences used as input when generating the indices
-
-| Input | File |
-| ----- | ---- |
-| Founder sequences | [founder-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/founder-sequences.a2m.bz2) |
-| Predicted sequences | [predicted-sequences.a2m.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/founder-quality-experiment/index-input/predicted-sequences.a2m.bz2) |
-
----
-
 ### Experiments with artificial mutations
 
 #### Running the experiment

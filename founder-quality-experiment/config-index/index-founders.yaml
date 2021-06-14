@@ -1,7 +1,0 @@
-benchmark_dir: benchmark-index-founders
-index_root: indices/index-founders
-input_a2m:
-- !!python/tuple
-  - chr21
-  - founder-sequences.a2m
-n_refs: 28
