@@ -1,5 +1,0 @@
-tempdir: /tmp
-max_edit_distance: 10
-max_memory_MB: 100000
-max_read_length: 105
-n_refs: 10

@@ -1,6 +1,0 @@
-benchmark_dir: benchmark-index-no-HG00731
-index_root: indices/index-no-HG00731
-input_a2m:
-- !!python/tuple
-  - chr21
-  - a2m/no-HG00731.a2m

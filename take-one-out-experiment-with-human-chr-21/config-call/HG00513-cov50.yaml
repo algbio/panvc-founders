@@ -1,6 +1,0 @@
-benchmark_dir: benchmark-call/no-HG00513-cov50
-index_root: indices/index-no-HG00513
-output_root: call/HG00513-cov50
-reads_all_path: reads/cov50/HG00513/gen_read_ALL_RENAMED.fq.gz
-reads_file_1: reads/cov50/HG00513/gen_read1.fq.gz
-reads_file_2: reads/cov50/HG00513/gen_read2.fq.gz

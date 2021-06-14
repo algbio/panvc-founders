@@ -1,6 +1,0 @@
-benchmark_dir: benchmark-index-no-NA12273
-index_root: indices/index-no-NA12273
-input_a2m:
-- !!python/tuple
-  - chr21
-  - a2m/no-NA12273.a2m
