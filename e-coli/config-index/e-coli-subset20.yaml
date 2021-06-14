@@ -1,0 +1,7 @@
+benchmark_dir: benchmark-index/e-coli-subset20
+index_root: indices/e-coli-subset20
+input_a2m:
+- !!python/tuple
+  - e-coli-subset20
+  - index-input/e-coli-subset20.a2m
+n_refs: 20

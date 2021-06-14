@@ -1,0 +1,7 @@
+benchmark_dir: benchmark-index/e-coli-msd5
+index_root: indices/e-coli-msd5
+input_a2m:
+- !!python/tuple
+  - e-coli-msd5
+  - index-input/e-coli-msd5.a2m
+n_refs: 20

@@ -1,0 +1,5 @@
+benchmark_dir: benchmark-call/SRR10418236-subset20
+output_root: call/SRR10418236-subset20
+reads_all_path: reads/SRR10418236.all.fq.gz
+reads_file_1: reads/SRR10418236.1.fq.gz
+reads_file_2: reads/SRR10418236.2.fq.gz
