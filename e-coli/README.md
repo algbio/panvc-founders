@@ -1,6 +1,6 @@
 # E.coli experiment with natural reads and known variants
 
-This directory contains the scripts needed to run the E.coli experiment with natural reads.
+This directory contains the scripts needed to run the E.coli experiments with natural reads.
 
 ## Running the experiment
 
