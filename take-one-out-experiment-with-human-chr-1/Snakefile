@@ -1,0 +1,88 @@
+wildcard_constraints:
+    regions	= "((all)|(confident))",
+    vc		= "((gatk)|(samtools))"
+
+
+rule all:
+	input:
+		"hap.py/baseline-chr1-all-samtools.summary.csv",
+		"hap.py/baseline-chr1-all-gatk.summary.csv",
+		"hap.py/panvc-chr1-all-samtools.summary.csv",
+		"hap.py/panvc-chr1-all-gatk.summary.csv",
+		#"hap.py/graphtyper-chr1-all-samtools.summary.csv",
+		#"hap.py/graphtyper-sv-chr1-all-samtools.summary.csv",
+		"hap.py/baseline-chr1-confident-samtools.summary.csv",
+		"hap.py/baseline-chr1-confident-gatk.summary.csv",
+		#"hap.py/graphtyper-chr1-confident-samtools.summary.csv",
+		#"hap.py/graphtyper-sv-chr1-confident-samtools.summary.csv",
+		"hap.py/panvc-chr1-confident-samtools.summary.csv",
+		"hap.py/panvc-chr1-confident-gatk.summary.csv"
+
+
+rule add_contig_header:
+	message:	"Adding missing contig headers"
+	input:		"call/ext_vc/pg_variants.{vc}.vcf"
+	output:		"call/ext_vc/pg_variants.{vc}.fixed.vcf"
+	run:
+		assert 1 == len(input)
+		assert 1 == len(output)
+		with open(input[0], "r") as src, open(output[0], "w") as dst:
+			for line in src:
+				if line.startswith("#CHROM"):
+					dst.write("##contig=<ID=1,length=249250621>\n")
+				dst.write(line)
+
+
+rule run_hap_py_baseline:
+	message:		"Running hap.py with baseline variants"
+	conda:			"../envs/happy.yaml"
+	threads:		2
+	input:
+		reference	= "hs37d5.fa",
+		faidx		= "hs37d5.fa.fai",
+		regions		= "{regions}-chr1.bed",
+		truth_vcf	= "HG001_GRCh37_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_PGandRTGphasetransfer.vcf.gz",
+		query_vcf	= "call/baseline_vc/variants.{vc}.vcf"
+	output:			"hap.py/baseline-chr1-{regions}-{vc}.summary.csv"
+	shell:	"hap.py --verbose --threads {threads} -r {input.reference} --target-regions {input.regions} -o hap.py/baseline-chr1-{wildcards.regions}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
+
+
+rule run_hap_py_panvc:
+	message:		"Running hap.py with PanVC variants"
+	conda:			"../envs/happy.yaml"
+	threads:		2
+	input:
+		reference	= "hs37d5.fa",
+		faidx		= "hs37d5.fa.fai",
+		regions		= "{regions}-chr1.bed",
+		truth_vcf	= "HG001_GRCh37_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_PGandRTGphasetransfer.vcf.gz",
+		query_vcf	= "call/ext_vc/pg_variants.{vc}.fixed.vcf"
+	output:			"hap.py/panvc-chr1-{regions}-{vc}.summary.csv"
+	shell:	"hap.py --verbose --threads {threads} -r {input.reference} --target-regions {input.regions} -o hap.py/panvc-chr1-{wildcards.regions}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
+
+
+rule run_hap_py_graphtyper:
+	message:		"Running hap.py with GraphTyper 2 variants ({wildcards.vc})"
+	conda:			"../envs/happy.yaml"
+	threads:		2
+	input:
+		reference	= "hs37d5.fa",
+		faidx		= "hs37d5.fa.fai",
+		regions		= "{regions}-chr1.bed",
+		truth_vcf	= "HG001_GRCh37_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_PGandRTGphasetransfer.vcf.gz",
+		query_vcf	= "graphtyper/bwa-for-{vc}.filtered.vcf.gz"
+	output:			"hap.py/graphtyper-chr1-{regions}-{vc}.summary.csv"
+	shell:	"hap.py --verbose --threads {threads} -r {input.reference} --target-regions {input.regions} -o hap.py/graphtyper-chr1-{wildcards.regions}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"
+
+rule run_hap_py_graphtyper_sv:
+	message:		"Running hap.py with GraphTyper 2 SV variants ({wildcards.vc})"
+	conda:			"../envs/happy.yaml"
+	threads:		2
+	input:
+		reference	= "hs37d5.fa",
+		faidx		= "hs37d5.fa.fai",
+		regions		= "{regions}-chr1.bed",
+		truth_vcf	= "HG001_GRCh37_GIAB_highconf_CG-IllFB-IllGATKHC-Ion-10X-SOLID_CHROM1-X_v.3.3.2_highconf_PGandRTGphasetransfer.vcf.gz",
+		query_vcf	= "graphtyper/bwa-for-{vc}-sv.fixed.vcf.gz"
+	output:			"hap.py/graphtyper-sv-chr1-{regions}-{vc}.summary.csv"
+	shell:	"hap.py --verbose --threads {threads} -r {input.reference} --target-regions {input.regions} -o hap.py/graphtyper-sv-chr1-{wildcards.regions}-{wildcards.vc} {input.truth_vcf} {input.query_vcf}"

@@ -1,0 +1,266 @@
+benchmark_dir: benchmark-index
+index_root: index
+input_a2m:
+- !!python/tuple
+  - '1'
+  - a2m/1.a2m
+- !!python/tuple
+  - '2'
+  - a2m/2.a2m
+- !!python/tuple
+  - '3'
+  - a2m/3.a2m
+- !!python/tuple
+  - '4'
+  - a2m/4.a2m
+- !!python/tuple
+  - '5'
+  - a2m/5.a2m
+- !!python/tuple
+  - '6'
+  - a2m/6.a2m
+- !!python/tuple
+  - '7'
+  - a2m/7.a2m
+- !!python/tuple
+  - '8'
+  - a2m/8.a2m
+- !!python/tuple
+  - '9'
+  - a2m/9.a2m
+- !!python/tuple
+  - '10'
+  - a2m/10.a2m
+- !!python/tuple
+  - '11'
+  - a2m/11.a2m
+- !!python/tuple
+  - '12'
+  - a2m/12.a2m
+- !!python/tuple
+  - '13'
+  - a2m/13.a2m
+- !!python/tuple
+  - '14'
+  - a2m/14.a2m
+- !!python/tuple
+  - '15'
+  - a2m/15.a2m
+- !!python/tuple
+  - '16'
+  - a2m/16.a2m
+- !!python/tuple
+  - '17'
+  - a2m/17.a2m
+- !!python/tuple
+  - '18'
+  - a2m/18.a2m
+- !!python/tuple
+  - '19'
+  - a2m/19.a2m
+- !!python/tuple
+  - '20'
+  - a2m/20.a2m
+- !!python/tuple
+  - '21'
+  - a2m/21.a2m
+- !!python/tuple
+  - '22'
+  - a2m/22.a2m
+- !!python/tuple
+  - X
+  - a2m/X.a2m
+- !!python/tuple
+  - Y
+  - a2m/Y.a2m
+- !!python/tuple
+  - GL000191.1
+  - a2m/GL000191.1.a2m
+- !!python/tuple
+  - GL000192.1
+  - a2m/GL000192.1.a2m
+- !!python/tuple
+  - GL000193.1
+  - a2m/GL000193.1.a2m
+- !!python/tuple
+  - GL000194.1
+  - a2m/GL000194.1.a2m
+- !!python/tuple
+  - GL000195.1
+  - a2m/GL000195.1.a2m
+- !!python/tuple
+  - GL000196.1
+  - a2m/GL000196.1.a2m
+- !!python/tuple
+  - GL000197.1
+  - a2m/GL000197.1.a2m
+- !!python/tuple
+  - GL000198.1
+  - a2m/GL000198.1.a2m
+- !!python/tuple
+  - GL000199.1
+  - a2m/GL000199.1.a2m
+- !!python/tuple
+  - GL000200.1
+  - a2m/GL000200.1.a2m
+- !!python/tuple
+  - GL000201.1
+  - a2m/GL000201.1.a2m
+- !!python/tuple
+  - GL000202.1
+  - a2m/GL000202.1.a2m
+- !!python/tuple
+  - GL000203.1
+  - a2m/GL000203.1.a2m
+- !!python/tuple
+  - GL000204.1
+  - a2m/GL000204.1.a2m
+- !!python/tuple
+  - GL000205.1
+  - a2m/GL000205.1.a2m
+- !!python/tuple
+  - GL000206.1
+  - a2m/GL000206.1.a2m
+- !!python/tuple
+  - GL000207.1
+  - a2m/GL000207.1.a2m
+- !!python/tuple
+  - GL000208.1
+  - a2m/GL000208.1.a2m
+- !!python/tuple
+  - GL000209.1
+  - a2m/GL000209.1.a2m
+- !!python/tuple
+  - GL000210.1
+  - a2m/GL000210.1.a2m
+- !!python/tuple
+  - GL000211.1
+  - a2m/GL000211.1.a2m
+- !!python/tuple
+  - GL000212.1
+  - a2m/GL000212.1.a2m
+- !!python/tuple
+  - GL000213.1
+  - a2m/GL000213.1.a2m
+- !!python/tuple
+  - GL000214.1
+  - a2m/GL000214.1.a2m
+- !!python/tuple
+  - GL000215.1
+  - a2m/GL000215.1.a2m
+- !!python/tuple
+  - GL000216.1
+  - a2m/GL000216.1.a2m
+- !!python/tuple
+  - GL000217.1
+  - a2m/GL000217.1.a2m
+- !!python/tuple
+  - GL000218.1
+  - a2m/GL000218.1.a2m
+- !!python/tuple
+  - GL000219.1
+  - a2m/GL000219.1.a2m
+- !!python/tuple
+  - GL000220.1
+  - a2m/GL000220.1.a2m
+- !!python/tuple
+  - GL000221.1
+  - a2m/GL000221.1.a2m
+- !!python/tuple
+  - GL000222.1
+  - a2m/GL000222.1.a2m
+- !!python/tuple
+  - GL000223.1
+  - a2m/GL000223.1.a2m
+- !!python/tuple
+  - GL000224.1
+  - a2m/GL000224.1.a2m
+- !!python/tuple
+  - GL000225.1
+  - a2m/GL000225.1.a2m
+- !!python/tuple
+  - GL000226.1
+  - a2m/GL000226.1.a2m
+- !!python/tuple
+  - GL000227.1
+  - a2m/GL000227.1.a2m
+- !!python/tuple
+  - GL000228.1
+  - a2m/GL000228.1.a2m
+- !!python/tuple
+  - GL000229.1
+  - a2m/GL000229.1.a2m
+- !!python/tuple
+  - GL000230.1
+  - a2m/GL000230.1.a2m
+- !!python/tuple
+  - GL000231.1
+  - a2m/GL000231.1.a2m
+- !!python/tuple
+  - GL000232.1
+  - a2m/GL000232.1.a2m
+- !!python/tuple
+  - GL000233.1
+  - a2m/GL000233.1.a2m
+- !!python/tuple
+  - GL000234.1
+  - a2m/GL000234.1.a2m
+- !!python/tuple
+  - GL000235.1
+  - a2m/GL000235.1.a2m
+- !!python/tuple
+  - GL000236.1
+  - a2m/GL000236.1.a2m
+- !!python/tuple
+  - GL000237.1
+  - a2m/GL000237.1.a2m
+- !!python/tuple
+  - GL000238.1
+  - a2m/GL000238.1.a2m
+- !!python/tuple
+  - GL000239.1
+  - a2m/GL000239.1.a2m
+- !!python/tuple
+  - GL000240.1
+  - a2m/GL000240.1.a2m
+- !!python/tuple
+  - GL000241.1
+  - a2m/GL000241.1.a2m
+- !!python/tuple
+  - GL000242.1
+  - a2m/GL000242.1.a2m
+- !!python/tuple
+  - GL000243.1
+  - a2m/GL000243.1.a2m
+- !!python/tuple
+  - GL000244.1
+  - a2m/GL000244.1.a2m
+- !!python/tuple
+  - GL000245.1
+  - a2m/GL000245.1.a2m
+- !!python/tuple
+  - GL000246.1
+  - a2m/GL000246.1.a2m
+- !!python/tuple
+  - GL000247.1
+  - a2m/GL000247.1.a2m
+- !!python/tuple
+  - GL000248.1
+  - a2m/GL000248.1.a2m
+- !!python/tuple
+  - GL000249.1
+  - a2m/GL000249.1.a2m
+- !!python/tuple
+  - hs37d5
+  - a2m/hs37d5.a2m
+- !!python/tuple
+  - MT
+  - a2m/MT.a2m
+- !!python/tuple
+  - NC_007605
+  - a2m/NC_007605.a2m
+max_edit_distance: 10
+max_memory_MB: 10000
+max_read_length: 105
+n_refs: 3
+tempdir: /home/wrk/gsa/tnorri/panvc-experiments/panvc-founders-5/take-one-out-experiment-with-human-chr-1/temp
