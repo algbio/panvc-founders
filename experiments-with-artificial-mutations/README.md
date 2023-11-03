@@ -79,7 +79,7 @@ The following archives contain the actual sequences of the samples that were rem
 
 ## Indices for use with `Snakefile.call`
 
-Archives that contain the pregenerated indices have been listed [on a separate page](e-coli-indices.md).
+Archives that contain the pregenerated indices have been listed in [e-coli-indices.md](e-coli-indices.md).
 
 ## Founder sequences used when generating the indices
 
@@ -87,5 +87,5 @@ Archives that contain the pregenerated indices have been listed [on a separate p
 | ---------------------------- |
 | [founder-sequences-a2m.tar.bz2](https://cs.helsinki.fi/group/gsa/panvc-founders/e-coli-experiment/founder-sequences-a2m.tar.bz2) |
 
-Individual sequence files have been listed [e-coli-index-inputs.md](e-coli-index-inputs.md).
+Individual sequence files have been listed in [e-coli-index-inputs.md](e-coli-index-inputs.md).
 
